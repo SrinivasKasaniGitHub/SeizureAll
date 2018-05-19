@@ -4,18 +4,6 @@
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\drawable-xhdpi\\traffic_small.png"
     },
     {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\search.png",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\drawable-xhdpi\\search.png"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\traffic_small.png",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\drawable-xhdpi\\traffic_small.png"
-    },
-    {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
     },
@@ -26,9 +14,5 @@
     {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\search.png",
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\drawable-xhdpi\\search.png"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\previoushistory.png",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\drawable-xhdpi\\previoushistory.png"
     }
 ]

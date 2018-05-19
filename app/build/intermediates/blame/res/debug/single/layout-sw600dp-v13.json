@@ -8,14 +8,6 @@
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_release_document.xml"
     },
     {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\custom_progress_dialog.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\custom_progress_dialog.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_main.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_main.xml"
-    },
-    {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_dashboard.xml",
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_dashboard.xml"
     },
@@ -28,120 +20,12 @@
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\printdisplay.xml"
     },
     {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_foot_path__vendor.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_foot_path__vendor.xml"
-    },
-    {
-        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_header.xml",
-        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_header.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\row.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\row.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_reports.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_reports.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\list_item_device.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\list_item_device.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\footer.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\footer.xml"
-    },
-    {
-        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_previous_history.xml",
-        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_previous_history.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_shop_vendor.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_shop_vendor.xml"
-    },
-    {
-        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_reports.xml",
-        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_reports.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_paired_devices.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_paired_devices.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\design_layout_snackbar.xml",
-        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\7359d251c151d249938c600954db948bd3421f0d\\output\\res\\layout-sw600dp-v13\\design_layout_snackbar.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_previous_history.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_previous_history.xml"
-    },
-    {
-        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_capture_images.xml",
-        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_capture_images.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_foot_path__preview.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_foot_path__preview.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_header.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_header.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_duplicate_print.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_duplicate_print.xml"
-    },
-    {
-        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\header.xml",
-        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\header.xml"
-    },
-    {
-        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_foot_path__preview.xml",
-        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_foot_path__preview.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\header.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\header.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_ipsettings.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_ipsettings.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_release_document.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_release_document.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_dashboard.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_dashboard.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_ph_print_display.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_ph_print_display.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\myprogressdialog.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\myprogressdialog.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\display.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\display.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_settings.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_settings.xml"
-    },
-    {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_ph_print_display.xml",
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_ph_print_display.xml"
     },
     {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_release_documents_print.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_release_documents_print.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_capture_images.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_capture_images.xml"
+        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_header.xml",
+        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_header.xml"
     },
     {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\design_layout_snackbar.xml",
@@ -160,6 +44,14 @@
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\footer.xml"
     },
     {
+        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_previous_history.xml",
+        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_previous_history.xml"
+    },
+    {
+        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_reports.xml",
+        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_reports.xml"
+    },
+    {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\display.xml",
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\display.xml"
     },
@@ -168,16 +60,12 @@
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_shop_vendor.xml"
     },
     {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_otp_input.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\activity_otp_input.xml"
+        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_capture_images.xml",
+        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_capture_images.xml"
     },
     {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_release_documents_print.xml",
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_release_documents_print.xml"
-    },
-    {
-        "merged": "D:\\Android\\Seizure\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\printdisplay.xml",
-        "source": "D:\\Android\\Seizure\\app\\src\\main\\res\\layout-sw600dp\\printdisplay.xml"
     },
     {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_paired_devices.xml",
@@ -194,6 +82,14 @@
     {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_main.xml",
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\header.xml",
+        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\header.xml"
+    },
+    {
+        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_foot_path__preview.xml",
+        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout-sw600dp\\activity_foot_path__preview.xml"
     },
     {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\activity_otp_input.xml",

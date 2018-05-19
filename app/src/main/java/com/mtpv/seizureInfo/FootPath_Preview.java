@@ -224,7 +224,8 @@ public class FootPath_Preview extends Activity {
 
         int amont_length = detSplit.length;
         //Log.i("amont_length :::", ""+amont_length);
-        amount = FootPath_Vendor.fine_amnt_et.getText().toString().trim();
+       // amount = FootPath_Vendor.fine_amnt_et.getText().toString().trim();
+        amount = FootPath_Vendor.selected_fine;
         int amount_share = Integer.parseInt(amount);
         //Log.i("amount_share :::", ""+amount_share);
 
@@ -248,7 +249,7 @@ public class FootPath_Preview extends Activity {
             InputStream inputStream = new ByteArrayInputStream(decodedString);
             Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
             imgvd.setImageBitmap(bitmap);
-            imgvd.setRotation(90);
+            imgvd.setRotation(0);
 
         } catch (Exception e) {
             //Toast.makeText(getApplicationContext(), "Image Not Selected", Toast.LENGTH_LONG).show();
@@ -261,7 +262,7 @@ public class FootPath_Preview extends Activity {
             InputStream inputStream = new ByteArrayInputStream(decodedString);
             Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
             imgvd2.setImageBitmap(bitmap);
-            imgvd2.setRotation(90);
+            imgvd2.setRotation(0);
         } catch (Exception e) {
             showToast("Image Not Selected");
         }

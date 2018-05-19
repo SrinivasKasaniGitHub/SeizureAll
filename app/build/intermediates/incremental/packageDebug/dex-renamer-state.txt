@@ -1,4 +1,4 @@
-#Fri May 18 16:37:04 IST 2018
-base.0=D\:\\Android\\Seizure\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Sat May 19 14:24:54 IST 2018
+base.0=D\:\\Android\\SeizureAll\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
-file.0=D\:\\Android\\Seizure\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.0=D\:\\Android\\SeizureAll\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

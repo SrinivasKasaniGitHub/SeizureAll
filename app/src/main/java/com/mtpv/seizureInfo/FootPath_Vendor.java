@@ -17,6 +17,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -43,6 +44,7 @@ import android.text.format.DateFormat;
 import android.text.format.Time;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +52,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -85,12 +89,16 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
+import fr.ganfra.materialspinner.MaterialSpinner;
+
 @SuppressWarnings("deprecation")
 @SuppressLint({"NewApi", "SimpleDateFormat", "DefaultLocale"})
+
 public class FootPath_Vendor extends Activity implements LocationListener {
     public static String NAMESPACE = "http://service.mother.com";
     public static String SOAP_ACTION_ID = NAMESPACE + "getDetailsByAADHAR", challanResponse;
@@ -263,6 +271,9 @@ public class FootPath_Vendor extends Activity implements LocationListener {
 
     String selectedPs_code = null;
     TextView officer_Name,officer_Cadre,officer_PS;
+    MaterialSpinner fine_spinner;
+    ArrayList<String> fineAmounts;
+    public static String selected_fine;
 
 
     @SuppressWarnings({"unused"})
@@ -272,6 +283,8 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_foot_path__vendor);
         ll = new LinearLayout(this);
+        fine_spinner=(MaterialSpinner)findViewById(R.id.fineSpinner);
+        getfineAmounts();
         otp_verify_status = "N";
         img_logo = (ImageView) findViewById(R.id.img_logo);
         if (MainActivity.uintCode.equals("22")){
@@ -583,6 +596,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                     imgString=null;
 
                     FootPath_Vendor.SelPicId = "1";
+                    imgv.setRotation(0);
                     selectImage();
 
                 } else {
@@ -612,6 +626,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                     imgString2=null;
 
                     FootPath_Vendor.SelPicId = "2";
+                    imgv2.setRotation(0);
                     selectImage();
                 } else {
 
@@ -686,7 +701,13 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                                     .setError(Html.fromHtml("<font color='white'>Please Enter Valid Aadhaar</font>"));
                             ridcardno_ET.requestFocus();
 
-                        } else if (ridcardno_ET.getText().toString().trim() != null
+                        }else if (ridcardno_ET.getText().toString().trim().length() <12){
+                            ridcardno_ET
+                                    .setError(Html.fromHtml("<font color='white'>Please Enter Valid Aadhaar</font>"));
+                            ridcardno_ET.requestFocus();
+                        }
+
+                        else if (ridcardno_ET.getText().toString().trim() != null
                                 && ridcardno_ET.getText().toString().trim().length() == 12
                                 && ver.isValid(ridcardno_ET.getText().toString().trim())) {
 
@@ -1059,7 +1080,10 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                 } else if (imgString2 == null && imgv2.getDrawable().getConstantState() == getResources()
                         .getDrawable(R.drawable.tin).getConstantState()) {
                     showToast("Please Select After Removal Encroachment Image");
-                } /*
+                }else if (null==selected_fine  || selected_fine.equals("Select Fine Amount")){
+                    showToast("Please Select Fine Amount !");
+                }
+                /*
 					 * else if (imgv2.getDrawable().getConstantState() ==
 					 * getResources().getDrawable(R.drawable.photo).
 					 * getConstantState()) {
@@ -1399,6 +1423,12 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         });
     }
 
+    public void getfineAmounts(){
+
+        new Async_getFineAmounts().execute();
+
+    }
+
 
     private void EnableGPSDisabledAlertToUser() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -1568,6 +1598,56 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         }
 
         return "";
+    }
+
+    public class Async_getFineAmounts extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected String doInBackground(Void... params) {
+            // TODO Auto-generated method stub
+
+            ServiceHelper.getFineMaster(MainActivity.uintCode);
+
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+            showDialog(PROGRESS_DIALOG);
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            // TODO Auto-generated method stub
+            super.onPostExecute(result);
+            removeDialog(PROGRESS_DIALOG);
+
+            if (ServiceHelper.getFineMasterresp != null && !"NA".equals(ServiceHelper.getFineMasterresp) ) {
+                fineAmounts=new ArrayList<String>();
+                String[] fineAmnt=ServiceHelper.getFineMasterresp.split("\\,");
+
+                fineAmounts= new ArrayList<String>(Arrays.asList(fineAmnt));
+                ArrayAdapter dataAdapter = new ArrayAdapter<>(getApplicationContext(),
+                        android.R.layout.simple_spinner_item, fineAmounts);
+                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                fine_spinner.setAdapter(dataAdapter);
+                fine_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        selected_fine=fine_spinner.getSelectedItem().toString();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+            } else {
+                showToast("Please try Again !!!");
+            }
+        }
     }
 
     public class Async_sendOTP_to_mobile extends AsyncTask<Void, Void, String> {
@@ -2114,6 +2194,10 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                 }
             } else {
                 showToast("No data Found!");
+                respondent_aadhaar_details_layout.setVisibility(View.VISIBLE);
+
+
+
             }
 
         }
@@ -2186,6 +2270,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                         || Opdata_Chalana.toString().trim().contains("anyTypr{}")) {
                     aadhar_details = new String[0];
                     showToast("No Aadhaar Details Found !!!");
+                    respondent_aadhaar_details_layout.setVisibility(View.VISIBLE);
                     rname_ET.setEnabled(true);
                     rfname_ET.setEnabled(true);
                     radderss_ET.setEnabled(true);
@@ -2766,9 +2851,32 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                         int xPos = (canvas.getWidth() / 2);
                         int yPos = (int) ((canvas.getHeight() / 2) - ((paint.descent() + paint.ascent()) / 2));
 
-                        canvas.drawText("Date & Time: " + Current_Date, xPos, yPos + 300, paint);
+                        canvas.save();
+                        canvas.rotate(270f, xPos, yPos);
+                        canvas.drawText("Date & Time: " + Current_Date, xPos + 10, yPos, paint);
+                        canvas.restore();
+
+                        canvas.save();
+                        canvas.rotate(270f, xPos, yPos);
                         canvas.drawText("Lat :" + latitude, xPos, yPos + 400, paint);
+                        canvas.restore();
+
+                        canvas.save();
+                        canvas.rotate(270f, xPos, yPos);
                         canvas.drawText("Long :" + longitude, xPos, yPos + 500, paint);
+                        canvas.rotate(90);
+                        canvas.restore();
+
+
+
+                        Display d = getWindowManager().getDefaultDisplay();
+                        int x = d.getWidth();
+                        int y = d.getHeight();
+                        Bitmap scaledBitmap = Bitmap.createScaledBitmap(mutableBitmap, y, x, true);
+                        Matrix matrix = new Matrix();
+                        matrix.postRotate(90);
+                        mutableBitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
+
                         mutableBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outFile);
                         outFile.flush();
                         outFile.close();
@@ -2818,9 +2926,17 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                         canvas.restore();
 
 
+                        Display d = getWindowManager().getDefaultDisplay();
+                        int x = d.getWidth();
+                        int y = d.getHeight();
+                        Bitmap scaledBitmap = Bitmap.createScaledBitmap(mutableBitmap, y, x, true);
+                        Matrix matrix = new Matrix();
+                        matrix.postRotate(90);
+                        mutableBitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
+
 
                         imgv.setImageBitmap(mutableBitmap);
-                        imgv.setRotation(90);
+                        imgv.setRotation(0);
 
                         // picture1.setRotation(90);
 
@@ -2861,8 +2977,16 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                         canvas.rotate(90);
                         canvas.restore();
 
+                        Display d = getWindowManager().getDefaultDisplay();
+                        int x = d.getWidth();
+                        int y = d.getHeight();
+                        Bitmap scaledBitmap = Bitmap.createScaledBitmap(mutableBitmap, y, x, true);
+                        Matrix matrix = new Matrix();
+                        matrix.postRotate(90);
+                        mutableBitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
+
                         imgv2.setImageBitmap(mutableBitmap);
-                        imgv2.setRotation(90);
+                        imgv2.setRotation(0);
 
                         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                         mutableBitmap.compress(Bitmap.CompressFormat.JPEG, 20, bytes);
