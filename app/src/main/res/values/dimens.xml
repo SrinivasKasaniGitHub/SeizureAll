@@ -7,6 +7,8 @@
     <dimen name="header_grnt_padding_ten">5dp</dimen>
     <dimen name="margin_twenty">20dp</dimen>
     <dimen name="header_icon_size">90dp</dimen>
+    <dimen name="header_size_small">70dp</dimen>
+    <dimen name="header_icon_size_small">60dp</dimen>
     <dimen name="margin_fifteen">15dp</dimen>
     
     <dimen name="colon_wght">0.9dp</dimen>

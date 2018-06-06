@@ -24,6 +24,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.location.Location;
@@ -44,6 +45,7 @@ import android.text.InputType;
 import android.text.format.DateFormat;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -340,6 +342,9 @@ public class ReleaseDocument extends Activity implements LocationListener {
 								&& ver.isValid(et_adhaar_no.getText()
 										.toString().trim())) {
 
+							aadhaar_String = et_adhaar_no.getText().toString().trim();
+
+							//RAC003B180020972
 							new Async_Submit().execute();
 						}
 					} else if (!aadhaarFLG && !imageFLG) {
@@ -535,11 +540,35 @@ public class ReleaseDocument extends Activity implements LocationListener {
                     	int yPos = (int) ((canvas.getHeight() / 2) - ((paint
                     	.descent() + paint.ascent()) / 2));
 
-                    	canvas.drawText("Date & Time: " + strdate1, xPos,
+                    	/*canvas.drawText("Date & Time: " + strdate1, xPos,
                     	yPos + 400, paint);
                     	canvas.drawText("Lat :" + latitude , xPos, yPos + 500, paint);
-                    	canvas.drawText("Long :"+ longitude, xPos, yPos + 600, paint);
+                    	canvas.drawText("Long :"+ longitude, xPos, yPos + 600, paint);*/
                     	//canvas.drawText("Date & Time: "+Current_Date+"\n"+" Lat :"+latitude+ " Long :"+longitude,1250, 1500, paint);
+
+						canvas.save();
+						canvas.rotate(270f, xPos, yPos);
+						canvas.drawText("Date & Time: " + strdate1, xPos + 10, yPos, paint);
+						canvas.restore();
+
+						canvas.save();
+						canvas.rotate(270f, xPos, yPos);
+						canvas.drawText("Lat :" + latitude, xPos, yPos + 400, paint);
+						canvas.restore();
+
+						canvas.save();
+						canvas.rotate(270f, xPos, yPos);
+						canvas.drawText("Long :" + longitude, xPos, yPos + 500, paint);
+						canvas.rotate(90);
+						canvas.restore();
+
+						Display d = getWindowManager().getDefaultDisplay();
+						int x = d.getWidth();
+						int y = d.getHeight();
+						Bitmap scaledBitmap = Bitmap.createScaledBitmap(mutableBitmap, y, x, true);
+						Matrix matrix = new Matrix();
+						matrix.postRotate(90);
+						mutableBitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
                     
                         mutableBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outFile);
                         outFile.flush();
@@ -563,11 +592,35 @@ public class ReleaseDocument extends Activity implements LocationListener {
                     	int yPos = (int) ((canvas.getHeight() / 2) - ((paint
                     	.descent() + paint.ascent()) / 2));
 
-                    	canvas.drawText("Date & Time: " + strdate1, xPos,
+                    	/*canvas.drawText("Date & Time: " + strdate1, xPos,
                     	yPos + 400, paint);
                     	canvas.drawText("Lat :" + latitude , xPos, yPos + 500, paint);
-                    	canvas.drawText("Long :"+ longitude, xPos, yPos + 600, paint);
+                    	canvas.drawText("Long :"+ longitude, xPos, yPos + 600, paint);*/
                     	//canvas.drawText("Date & Time: "+Current_Date+"\n"+" Lat :"+latitude+ " Long :"+longitude,1250, 1500, paint);
+
+						canvas.save();
+						canvas.rotate(270f, xPos, yPos);
+						canvas.drawText("Date & Time: " + strdate1, xPos + 10, yPos, paint);
+						canvas.restore();
+
+						canvas.save();
+						canvas.rotate(270f, xPos, yPos);
+						canvas.drawText("Lat :" + latitude, xPos, yPos + 400, paint);
+						canvas.restore();
+
+						canvas.save();
+						canvas.rotate(270f, xPos, yPos);
+						canvas.drawText("Long :" + longitude, xPos, yPos + 500, paint);
+						canvas.rotate(90);
+						canvas.restore();
+
+						Display d = getWindowManager().getDefaultDisplay();
+						int x = d.getWidth();
+						int y = d.getHeight();
+						Bitmap scaledBitmap = Bitmap.createScaledBitmap(mutableBitmap, y, x, true);
+						Matrix matrix = new Matrix();
+						matrix.postRotate(90);
+						mutableBitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
                     
                     	release_imgv.setImageBitmap(mutableBitmap);
                     	//picture1.setRotation(90);
@@ -593,7 +646,6 @@ public class ReleaseDocument extends Activity implements LocationListener {
                 c.close();
                 
                 Bitmap thumbnail = (BitmapFactory.decodeFile(picturePath));
-                Log.w("path of image from gallery......******************.........", picturePath+"");
                 
                 if("1".equals(ReleaseDocument.SelPicId) && thumbnail!=null){
                 	Bitmap mutableBitmap = thumbnail.copy(Bitmap.Config.ARGB_8888, true);

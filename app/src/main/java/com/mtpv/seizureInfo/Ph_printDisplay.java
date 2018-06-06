@@ -29,6 +29,7 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -47,6 +48,9 @@ public class Ph_printDisplay extends Activity implements OnItemSelectedListener,
 	
 	final AnalogicsThermalPrinter actual_printer = new AnalogicsThermalPrinter();
 	final Bluetooth_Printer_3inch_ThermalAPI bth_printer = new Bluetooth_Printer_3inch_ThermalAPI();
+
+	TextView officer_Name,officer_Cadre,officer_PS;
+	ImageView img_logo;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,12 +62,31 @@ public class Ph_printDisplay extends Activity implements OnItemSelectedListener,
 		
 		Tv = (TextView)findViewById(R.id.printTv);
 		Tv.setText("");
+
+		img_logo = (ImageView) findViewById(R.id.img_logo);
+
+		if (MainActivity.uintCode.equals("22")){
+			img_logo.setImageDrawable(getResources().getDrawable(R.drawable.cyb_logo));
+		}else if (MainActivity.uintCode.equals("23")){
+			img_logo.setImageDrawable(getResources().getDrawable(R.drawable.htp_left));
+		}else if (MainActivity.uintCode.equals("24")){
+			img_logo.setImageDrawable(getResources().getDrawable(R.drawable.rac_logo));
+		}else{
+			img_logo.setImageDrawable(getResources().getDrawable(R.drawable.htp_left));
+		}
+
+		officer_Name=(TextView)findViewById(R.id.officer_Name);
+		officer_Cadre=(TextView)findViewById(R.id.officer_cadre);
+		officer_PS=(TextView)findViewById(R.id.officer_PS);
+
+		officer_Name.setText(MainActivity.PID_NAME1+"("+MainActivity.CADRE_NAME1+")");
+		officer_Cadre.setText(MainActivity.CADRE_NAME1);
+		officer_PS.setText(MainActivity.PS_NAME1);
 		
 		SharedPreferences prefs = getSharedPreferences("printData_phistory_id", MODE_PRIVATE);
 		
 		String data_to_print = prefs.getString("print", "");
-		
-		Log.i("data to print :::: print ", ""+data_to_print);
+
 		
 		if (PreviousHistory.phistoryFLG) {
 			Tv.setText(""+PreviousHistory.PRINT_DATA_ID);

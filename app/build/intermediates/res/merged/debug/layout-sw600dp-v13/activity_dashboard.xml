@@ -5,6 +5,7 @@
 	android:layout_height="match_parent"
 	android:background="@drawable/bgcolor" >
 
+
 	<!-- Header aligned to top -->
 
 	<include
@@ -89,8 +90,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginTop="5dp"
 				android:orientation="horizontal"
-				android:weightSum="1"
-                android:visibility="visible">
+				android:weightSum="1" >
 
 				<TextView
 					android:id="@+id/usernameTV"
@@ -102,7 +102,7 @@
 					android:textStyle="bold"
 					android:textColor="@color/navi_color"
 					android:textSize="23sp"
-                    android:visibility="invisible"/>
+					android:visibility="invisible"/>
 
 				<ImageButton
 					android:id="@+id/logout"
@@ -278,7 +278,7 @@
 						android:layout_height="wrap_content"
 						android:gravity="center"
 						android:layout_marginTop="5dp"
-						android:text="Release Documents"
+						android:text="Release Items"
 						android:textColor="@color/navi_color"
 						android:textSize="23sp"
 						android:textStyle="bold" />

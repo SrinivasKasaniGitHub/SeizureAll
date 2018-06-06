@@ -130,15 +130,22 @@ public class FootPath_Preview extends Activity {
         imgvd2 = (ImageView) findViewById(R.id.imgvd2);
 
         img_logo = (ImageView) findViewById(R.id.img_logo);
-        if (MainActivity.uintCode.equals("22")){
-            img_logo.setImageDrawable(getResources().getDrawable(R.drawable.cyb_logo));
-        }else if (MainActivity.uintCode.equals("23")){
-            img_logo.setImageDrawable(getResources().getDrawable(R.drawable.htp_left));
-        }else if (MainActivity.uintCode.equals("24")){
-            img_logo.setImageDrawable(getResources().getDrawable(R.drawable.rac_logo));
-        }else{
-            img_logo.setImageDrawable(getResources().getDrawable(R.drawable.htp_left));
+
+        switch (MainActivity.uintCode) {
+            case "22":
+                img_logo.setImageDrawable(getResources().getDrawable(R.drawable.cyb_logo));
+                break;
+            case "23":
+                img_logo.setImageDrawable(getResources().getDrawable(R.drawable.htp_left));
+                break;
+            case "24":
+                img_logo.setImageDrawable(getResources().getDrawable(R.drawable.rac_logo));
+                break;
+            default:
+                img_logo.setImageDrawable(getResources().getDrawable(R.drawable.htp_left));
+                break;
         }
+
         officer_Name=(TextView)findViewById(R.id.officer_Name);
         officer_Cadre=(TextView)findViewById(R.id.officer_cadre);
         officer_PS=(TextView)findViewById(R.id.officer_PS);
@@ -146,6 +153,7 @@ public class FootPath_Preview extends Activity {
         officer_Name.setText(MainActivity.PID_NAME1+"("+MainActivity.CADRE_NAME1+")");
         officer_Cadre.setText(MainActivity.CADRE_NAME1);
         officer_PS.setText(MainActivity.PS_NAME1);
+
         Fregnno_ET = (TextView) findViewById(R.id.fregnno_ET);
         location_ET = (TextView) findViewById(R.id.location_ET);
         landmark_ET = (TextView) findViewById(R.id.landmark_ET);

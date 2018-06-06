@@ -58,11 +58,13 @@ public class Dashboard extends Activity {
     ImageView logout, image_to_capture,img_logo;
     TextView usernameTV;
 
+
+
     final int PROGRESS_DIALOG = 1;
 
 
     String server = "192.168.11.9";
-    int port = 99;
+    int port = 1305;
     String username = "ftpuser";
     String password = "Dk0r$l1qMp6";
     String filename = "Version-1.5.1.apk";
@@ -80,6 +82,7 @@ public class Dashboard extends Activity {
     public static String class_clarify = null, OtpStatus = "", OtpResponseDelayTime;
     public static String[] otp_Master;
     TextView officer_Name,officer_Cadre,officer_PS;
+    ImageView img_foot_Vender,img_Reports,img_settings,img_DPrint,img_Prevs_History,img_Relse_Items;
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,8 +96,13 @@ public class Dashboard extends Activity {
         settings = (LinearLayout) findViewById(R.id.settings);
         duplicate_print = (LinearLayout) findViewById(R.id.duplicate_print);
         previous_his = (LinearLayout) findViewById(R.id.previous_his);
-
         release_doc = (LinearLayout) findViewById(R.id.release_doc);
+        img_foot_Vender=(ImageView)findViewById(R.id.img_footpath_vendor);
+        img_Reports=(ImageView)findViewById(R.id.img_report);
+        img_settings=(ImageView)findViewById(R.id.img_settings);
+        img_DPrint=(ImageView)findViewById(R.id.img_dp_print);
+        img_Prevs_History=(ImageView)findViewById(R.id.img_p_history);
+        img_Relse_Items=(ImageView)findViewById(R.id.img_release_Items);
 
         logout = (ImageView) findViewById(R.id.logout);
         img_logo = (ImageView) findViewById(R.id.img_logo);
@@ -150,7 +158,8 @@ public class Dashboard extends Activity {
 
                 String otp_message = "Are You Sure,\nDo You Want To Exit?";
 
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Dashboard.this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Dashboard.this,
+                        AlertDialog.THEME_HOLO_LIGHT);
                 alertDialogBuilder.setCustomTitle(title);
                 alertDialogBuilder.setIcon(R.drawable.dialog_logo);
                 alertDialogBuilder.setMessage(otp_message);
@@ -197,6 +206,8 @@ public class Dashboard extends Activity {
                 btn2.setTextColor(Color.WHITE);
                 btn2.setTypeface(btn2.getTypeface(), Typeface.BOLD);
                 btn2.setBackgroundColor(Color.RED);
+                btn2.setPadding(5,0,0,0);
+
             }
         });
 
@@ -249,7 +260,7 @@ public class Dashboard extends Activity {
 
         }
 
-        footpath_vendor.setOnClickListener(new View.OnClickListener() {
+        img_foot_Vender.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -272,7 +283,7 @@ public class Dashboard extends Activity {
             }
         });
 
-        report.setOnClickListener(new View.OnClickListener() {
+        img_Reports.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -287,7 +298,7 @@ public class Dashboard extends Activity {
             }
         });
 
-        duplicate_print.setOnClickListener(new View.OnClickListener() {
+        img_DPrint.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -301,7 +312,7 @@ public class Dashboard extends Activity {
             }
         });
 
-        settings.setOnClickListener(new View.OnClickListener() {
+        img_settings.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -315,7 +326,7 @@ public class Dashboard extends Activity {
             }
         });
 
-        previous_his.setOnClickListener(new OnClickListener() {
+        img_Prevs_History.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -329,7 +340,7 @@ public class Dashboard extends Activity {
                 }
             }
         });
-        release_doc.setOnClickListener(new OnClickListener() {
+        img_Relse_Items.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -492,7 +503,7 @@ public class Dashboard extends Activity {
 
         String otp_message = "Are you sure, You want to Exit Application...!";
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Dashboard.this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Dashboard.this, AlertDialog.THEME_HOLO_LIGHT);
         alertDialogBuilder.setCustomTitle(title);
         alertDialogBuilder.setIcon(R.drawable.dialog_logo);
         alertDialogBuilder.setMessage(otp_message);
@@ -562,7 +573,7 @@ public class Dashboard extends Activity {
             FTPClient ftpClient = new FTPClient();
 
             if (null != MainActivity.services_url
-                    && MainActivity.services_url.equals("https://www.echallan.org/")) {
+                    && MainActivity.services_url.contains("https://www.echallan.org/")) {
                 server = "125.16.1.69";
             } else {
                 server = "192.168.11.9";
@@ -574,8 +585,8 @@ public class Dashboard extends Activity {
                 ftpClient.enterLocalPassiveMode();
                 ftpClient.setBufferSize(1024 * 1024);
                 ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
-                File downloadFile1 = new File("/mnt/sdcard/Download/39BHYD.apk");
-                String remoteFile1 = "/23/TabAPK" + "/39BHYD.apk";
+                File downloadFile1 = new File("/mnt/sdcard/Download/TSSEIZURE.apk");
+                String remoteFile1 = "/23/TabAPK" + "/TSSEIZURE.apk";
                 OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(downloadFile1));
                 boolean success = ftpClient.retrieveFile(remoteFile1, outputStream);
                 FileOutputStream fileOutput = new FileOutputStream(downloadFile1);
@@ -662,13 +673,13 @@ public class Dashboard extends Activity {
                         if (Build.VERSION.SDK_INT <= 23) {
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.setDataAndType(
-                                    Uri.fromFile(new File("/mnt/sdcard/Download/39BHYD.apk")),
+                                    Uri.fromFile(new File("/mnt/sdcard/Download/TSSEIZURE.apk")),
                                     "application/vnd.android.package-archive");
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         } else {
                             Uri apkUri = FileProvider.getUriForFile(Dashboard.this, BuildConfig.APPLICATION_ID +
-                                    ".fileProvider", new File("/mnt/sdcard/Download/39BHYD.apk"));
+                                    ".fileProvider", new File("/mnt/sdcard/Download/TSSEIZURE.apk"));
                             Intent intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
                             intent.setData(apkUri);
                             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

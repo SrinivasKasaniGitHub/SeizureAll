@@ -23,6 +23,7 @@ import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.Image;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -44,6 +45,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -142,6 +144,8 @@ public class MainActivity extends Activity implements LocationListener,OnClickLi
 
     public static String psName,cadre_name,pidName;
 
+    ImageView img_ip_settings;
+
 
     @SuppressWarnings({"deprecation", "unused"})
     @SuppressLint("WorldReadableFiles")
@@ -156,6 +160,7 @@ public class MainActivity extends Activity implements LocationListener,OnClickLi
         appVersion = getResources().getString(R.string.version);
 
         mErrorString = new SparseIntArray();
+        img_ip_settings=(ImageView)findViewById(R.id.img_ip_settings);
 
         if (Build.VERSION.SDK_INT > 22 && !hasPermissions(requiredPermissions)) {
 
@@ -315,7 +320,7 @@ public class MainActivity extends Activity implements LocationListener,OnClickLi
         });
 
 
-        ip_settings.setOnClickListener(new OnClickListener() {
+        img_ip_settings.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -859,7 +864,7 @@ public class MainActivity extends Activity implements LocationListener,OnClickLi
 
         String otp_message = "Are you sure, You want to Leave Application...!";
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this, AlertDialog.THEME_HOLO_LIGHT);
         alertDialogBuilder.setCustomTitle(title);
         alertDialogBuilder.setIcon(R.drawable.dialog_logo);
         alertDialogBuilder.setMessage(otp_message);

@@ -8,7 +8,7 @@
 	<!-- Header aligned to top -->
 	<include
 		android:id="@+id/header"
-		layout="@layout/activity_header">
+		layout="@layout/activity_header_small">
 
 	</include>
 	<!--<RelativeLayout
@@ -129,19 +129,19 @@
 					android:text="Blutooth Settings"
 					android:textColor="@color/navi_color"
 					android:textStyle="bold"
-					android:textSize="30dp" />
+					android:textSize="20dp" />
 
 				<Button
 					android:id="@+id/scan_btn"
 					style="@style/naviblue_custom_style"
 					android:layout_width="250dp"
-					android:layout_height="65dp"
+					android:layout_height="50dp"
 					android:layout_below="@+id/textView3"
 					android:layout_centerInParent="true"
 					android:layout_marginTop="15dp"
 					android:text="Scan Bluetooth"
 					android:textColor="#ffffff"
-					android:textSize="22sp"
+					android:textSize="18sp"
 					android:textStyle="bold" />
 
 				<EditText
@@ -157,7 +157,8 @@
 					android:inputType="number"
 					android:text=""
 					android:textColor="#191970"
-					android:textSize="28sp" />
+					android:textSize="20sp" />
+
 				<TextView
 					android:id="@+id/ffd"
 					style="@style/navi_text_style"
@@ -165,7 +166,7 @@
 					android:layout_height="wrap_content"
 					android:text="Blutooth Devices Display Here"
 					android:textStyle="bold"
-					android:textSize="25sp"
+					android:textSize="20sp"
 					android:visibility="visible"
 					android:layout_below="@+id/buletooth_text"/>
 
@@ -174,29 +175,29 @@
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="10dp"
-					android:layout_below="@+id/buletooth_text"
+					android:layout_below="@+id/ffd"
 					android:layout_centerInParent="true" >
 				</ListView>
 
 				<LinearLayout
 					android:id="@+id/h120"
-					android:layout_width="558dp"
+					android:layout_width="match_parent"
 					android:layout_height="70dp"
 					android:layout_below="@+id/listview_devicesfound"
 					android:layout_marginTop="30dp"
-					android:orientation="horizontal" >
+					android:orientation="horizontal"
+					android:weightSum="2">
 
 					<Button
 						android:id="@+id/cancel_Btn"
 						style="@style/naviblue_custom_style"
-						android:layout_width="250dp"
-						android:layout_height="65dp"
-						android:layout_x="20dp"
-						android:layout_y="620dp"
+						android:layout_width="0dp"
+						android:layout_height="50dp"
 						android:text="Cancel"
 						android:textColor="#ffffff"
-						android:textSize="22sp"
-						android:textStyle="bold" />
+						android:textSize="20sp"
+						android:textStyle="bold"
+						android:layout_weight="1"/>
 
 					<TextView
 						android:layout_width="10dp"
@@ -205,27 +206,26 @@
 						android:layout_marginLeft="30dp"
 						android:text=""
 						android:textAppearance="?android:attr/textAppearanceMedium"
-						android:textSize="30sp" />
+						android:textSize="20sp" />
 
 
 					<Button
 						android:id="@+id/save"
 						style="@style/naviblue_custom_style"
-						android:layout_width="250dp"
-						android:layout_height="65dp"
-						android:layout_x="320dp"
-						android:layout_y="620dp"
+						android:layout_width="0dp"
+						android:layout_height="50dp"
 						android:text="Save"
 						android:textColor="#ffffff"
-						android:textSize="22sp"
-						android:textStyle="bold" />
+						android:textSize="20sp"
+						android:textStyle="bold"
+						android:layout_weight="1"/>
 
 				</LinearLayout>
 
 				<ImageView
 					android:id="@+id/update_apk"
 					android:layout_width="250dp"
-					android:layout_height="100dp"
+					android:layout_height="80dp"
 					android:layout_below="@+id/h120"
 					android:layout_marginTop="40dp"
 					android:layout_centerInParent="true"

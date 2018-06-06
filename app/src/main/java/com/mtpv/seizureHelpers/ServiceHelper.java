@@ -730,7 +730,7 @@ public class ServiceHelper {
             HttpTransportSE httpTransportSE = new HttpTransportSE(MainActivity.URL);
             httpTransportSE.call(SOAP_ACTION, envelope);
             Object result = envelope.getResponse();
-
+            ReleaseDocSubmit_resp="";
             ReleaseDocSubmit_resp = result.toString();
             if (ReleaseDocSubmit_resp.trim() == null || ReleaseDocSubmit_resp.trim().equals("NA") || ReleaseDocSubmit_resp.trim().equals("anyType{}")) {
                 ReleaseDocSubmit_resp = null;
@@ -747,7 +747,7 @@ public class ServiceHelper {
 
     //getLocation(String gpsLatti, String gpsLongi);
     public static void get_Location(String gps_Latti, String gps_Longi) {
-//public String releaseDocs(String unitCode, String eticketNo,String aadhaar,String offDate,String pidCd,String pidName,String imgAfter);
+    //public String releaseDocs(String unitCode, String eticketNo,String aadhaar,String offDate,String pidCd,String pidName,String imgAfter);
 
         try {
             SoapObject request = new SoapObject(NAMESPACE, "getLocation");

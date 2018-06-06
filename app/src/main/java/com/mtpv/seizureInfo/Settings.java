@@ -71,7 +71,7 @@ public class Settings extends Activity {
     public static EditText et_bt_address;
     final int PROGRESS_DIALOG = 2;
     String server = "192.168.11.9";
-    int port = 99;
+    int port = 1305;
     String username = "ftpuser";
     String password = "Dk0r$l1qMp6";
     String filename = "Version-1.5.1.apk";
@@ -341,10 +341,10 @@ public class Settings extends Activity {
             FTPClient ftpClient = new FTPClient();
 
             if (null != MainActivity.services_url
-                    && MainActivity.services_url.equals("https://www.echallan.org/")) {
-                server = IPsettings.open_ftp_fix;
+                    && MainActivity.services_url.contains("https://www.echallan.org/")) {
+                server = "125.16.1.69";
             } else {
-                server = IPsettings.ftp_fix;
+                server = "192.168.11.9";
             }
 
             try {
@@ -353,8 +353,8 @@ public class Settings extends Activity {
                 ftpClient.enterLocalPassiveMode();
                 ftpClient.setBufferSize(1024 * 1024);
                 ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
-                File downloadFile1 = new File("/mnt/sdcard/Download/39BHYD.apk");
-                String remoteFile1 = "/23/TabAPK" + "/39BHYD.apk";
+                File downloadFile1 = new File("/mnt/sdcard/Download/TSSEIZURE.apk");
+                String remoteFile1 = "/23/TabAPK" + "/TSSEIZURE.apk";
                 OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(downloadFile1));
                 boolean success = ftpClient.retrieveFile(remoteFile1, outputStream);
                 FileOutputStream fileOutput = new FileOutputStream(downloadFile1);
@@ -426,7 +426,7 @@ public class Settings extends Activity {
                             public void run() {
                                 progress.setProgress(downloadedSize);
                                 float per = ((float) downloadedSize / totalSize) * 100;
-                                cur_val.setText((int) per / 1500000 + "%");
+                                cur_val.setText((int) per / 215000 + "%");
                             }
                         });
                     }
@@ -440,13 +440,13 @@ public class Settings extends Activity {
                         if (Build.VERSION.SDK_INT <= 23) {
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.setDataAndType(
-                                    Uri.fromFile(new File("/mnt/sdcard/Download/39BHYD.apk")),
+                                    Uri.fromFile(new File("/mnt/sdcard/Download/TSSEIZURE.apk")),
                                     "application/vnd.android.package-archive");
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         } else {
                             Uri apkUri = FileProvider.getUriForFile(Settings.this, BuildConfig.APPLICATION_ID +
-                                    ".fileProvider", new File("/mnt/sdcard/Download/39BHYD.apk"));
+                                    ".fileProvider", new File("/mnt/sdcard/Download/TSSEIZURE.apk"));
                             Intent intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
                             intent.setData(apkUri);
                             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

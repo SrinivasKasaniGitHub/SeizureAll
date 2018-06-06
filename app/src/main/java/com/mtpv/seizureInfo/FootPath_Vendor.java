@@ -370,6 +370,8 @@ public class FootPath_Vendor extends Activity implements LocationListener {
             latitude = gps.getLatitude();
             longitude = gps.getLongitude();
 
+            //new Async_GetGPS_Address().execute();
+
         } else {
 
             gps.showSettingsAlert();
@@ -728,6 +730,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
 
                                 rname_ET.setText("");
                                 rfname_ET.setText("");
+
                                 rage_ET.setText("");
                                 radderss_ET.setText("");
                                 rmobileno_ET.setText("");
@@ -759,11 +762,11 @@ public class FootPath_Vendor extends Activity implements LocationListener {
 
                 if (tempContactNumber.equals("")) {
                     rmobileno_ET
-                            .setError(Html.fromHtml("<font color='black'>Enter mobile number to send OTP!!</font>"));
+                            .setError(Html.fromHtml("<font color='white'>Enter mobile number to send OTP!!</font>"));
                     rmobileno_ET.requestFocus();
                 } else if (tempContactNumber.trim() != null && tempContactNumber.trim().length() > 1
                         && tempContactNumber.trim().length() != 10) {
-                    rmobileno_ET.setError(Html.fromHtml("<font color='black'>Enter Valid mobile number!!</font>"));
+                    rmobileno_ET.setError(Html.fromHtml("<font color='white'>Enter Valid mobile number!!</font>"));
                     rmobileno_ET.requestFocus();
                 } else if (tempContactNumber.length() == 10) {
                     if ((tempContactNumber.charAt(0) == '7') || (tempContactNumber.charAt(0) == '8')
@@ -777,7 +780,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                             showToast("Please check your network connection!");
                         }
                     } else {
-                        rmobileno_ET.setError(Html.fromHtml("<font color='black'>Check Contact No.!!</font>"));
+                        rmobileno_ET.setError(Html.fromHtml("<font color='white'>Check Contact No.!!</font>"));
                         rmobileno_ET.requestFocus();
                     }
                 } else if (tempContactNumber.length() == 11) {
@@ -788,7 +791,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                             showToast("Please check your network connection!");
                         }
                     } else {
-                        rmobileno_ET.setError(Html.fromHtml("<font color='black'>Check Contact No.!!</font>"));
+                        rmobileno_ET.setError(Html.fromHtml("<font color='white'>Check Contact No.!!</font>"));
                         rmobileno_ET.requestFocus();
                     }
                 }
@@ -974,10 +977,10 @@ public class FootPath_Vendor extends Activity implements LocationListener {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 if (Itemname_ET.getText().toString().equals("")) {
-                    Itemname_ET.setError(Html.fromHtml("<font color='black'>Please Enter Item Name</font>"));
+                    Itemname_ET.setError(Html.fromHtml("<font color='white'>Please Enter Item Name</font>"));
                     Itemname_ET.requestFocus();
-                } else if (qty_ET.getText().toString().equals("")) {
-                    qty_ET.setError(Html.fromHtml("<font color='black'>Please Enetr Quantity</font>"));
+                } else if (qty_ET.getText().toString().equals("") || qty_ET.getText().toString().equals("0")) {
+                    qty_ET.setError(Html.fromHtml("<font color='white'>Please Enter proper Quantity</font>"));
                     qty_ET.requestFocus();
                 } /*
 					 * else if (amount_ET.getText().toString().equals("")) {
@@ -1077,10 +1080,11 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                 } else if (imgString == null && imgv.getDrawable().getConstantState() == getResources()
                         .getDrawable(R.drawable.photo).getConstantState()) {
                     showToast("Please Select Encroachment Image");
-                } else if (imgString2 == null && imgv2.getDrawable().getConstantState() == getResources()
+                } /*else if (imgString2 == null && imgv2.getDrawable().getConstantState() == getResources()
                         .getDrawable(R.drawable.tin).getConstantState()) {
                     showToast("Please Select After Removal Encroachment Image");
-                }else if (null==selected_fine  || selected_fine.equals("Select Fine Amount")){
+                }*/
+                else if (null==selected_fine  || selected_fine.equals("Select Fine Amount")){
                     showToast("Please Select Fine Amount !");
                 }
                 /*
@@ -1096,7 +1100,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                     rmobileno_ET.setError(Html.fromHtml("<font color='white'>Enter Valid mobile number!!</font>"));
                     rmobileno_ET.requestFocus();
                 } else if (tempContactNumber.length() == 10) {
-                    if ((tempContactNumber.charAt(0) == '7') || (tempContactNumber.charAt(0) == '8')
+                    if ((tempContactNumber.charAt(0) == '7') || (tempContactNumber.charAt(0) == '6')|| (tempContactNumber.charAt(0) == '8')
                             || (tempContactNumber.charAt(0) == '9')) {
 
                         if (Dashboard.OtpStatus.equalsIgnoreCase("Y") && !FootPath_Vendor.otp_verify_status.equalsIgnoreCase("Y")) {
@@ -1186,6 +1190,9 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                             }
 
                             try {
+                                if (imgString2==null){
+                                    imgString2="";
+                                }
                                 edit.putString("tinPicture", imgString2);
                             } catch (Exception e) {
                                 System.out.println("imgString2 ::" + e);
@@ -1630,8 +1637,8 @@ public class FootPath_Vendor extends Activity implements LocationListener {
 
                 fineAmounts= new ArrayList<String>(Arrays.asList(fineAmnt));
                 ArrayAdapter dataAdapter = new ArrayAdapter<>(getApplicationContext(),
-                        android.R.layout.simple_spinner_item, fineAmounts);
-                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        R.layout.spinner_item, R.id.txt_item, fineAmounts);
+                dataAdapter.setDropDownViewResource(R.layout.spinner_item);
                 fine_spinner.setAdapter(dataAdapter);
                 fine_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override

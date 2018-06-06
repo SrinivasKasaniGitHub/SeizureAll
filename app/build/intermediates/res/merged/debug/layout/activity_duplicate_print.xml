@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/header"
-        layout="@layout/activity_header">
+        layout="@layout/activity_header_small">
 
     </include>
    <!-- <RelativeLayout
@@ -92,22 +92,20 @@
                 android:text="@string/dup_print"
                 android:textColor="@color/navi_color"
                 android:textStyle="bold"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
       
      <LinearLayout
       android:layout_width="fill_parent"
       android:layout_height="150dp"
       android:layout_marginTop="20dp"
       android:orientation="horizontal"
-      android:weightSum="1" >
+      android:weightSum="2" >
 
           <Button
               android:id="@+id/duplicate_date_btn"
-              android:layout_width="250dp"
+              android:layout_width="0dp"
               android:layout_height="70dp"
               android:layout_gravity="center"
-              android:layout_marginLeft="30dp"
-              android:layout_marginRight="15dp"
               style="@style/naviblue_custom_style"
               android:focusable="false"
               android:gravity="center"
@@ -115,19 +113,19 @@
               android:inputType="none"
               android:textColor="#ffffff"
               android:textColorHint="#ffffff"
-              android:textSize="22sp" />
+              android:textSize="22sp"
+              android:layout_weight="1"/>
       
          <Button
              android:id="@+id/get_dup_print"
-             android:layout_width="250dp"
+             android:layout_width="0dp"
              android:layout_height="70dp"
              android:layout_gravity="center"
-             android:layout_marginLeft="30dp"
-             android:layout_marginRight="15dp"
              style="@style/naviblue_custom_style"
              android:text="@string/get"
              android:textColor="#fff"
-             android:textSize="22sp" />
+             android:textSize="22sp"
+             android:layout_weight="1"/>
 
       </LinearLayout>
       

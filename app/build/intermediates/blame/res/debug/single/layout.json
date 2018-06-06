@@ -104,6 +104,10 @@
         "source": "C:\\Users\\Srinivas\\.android\\build-cache\\7359d251c151d249938c600954db948bd3421f0d\\output\\res\\layout\\design_navigation_item_subheader.xml"
     },
     {
+        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_header_small.xml",
+        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout\\activity_header_small.xml"
+    },
+    {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
         "source": "C:\\Users\\Srinivas\\.android\\build-cache\\974101f1dea352e552f56f8fcc4c8c51ada5e7c9\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
@@ -178,6 +182,10 @@
     {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
         "source": "C:\\Users\\Srinivas\\.android\\build-cache\\7359d251c151d249938c600954db948bd3421f0d\\output\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout\\spinner_item.xml",
+        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\layout\\spinner_item.xml"
     },
     {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",

@@ -669,7 +669,8 @@
                     android:text="@string/star"
                     android:textColor="#FF0000"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+					android:visibility="gone"/>
 
                 <RadioGroup
                     android:id="@+id/adr_group"
@@ -1352,6 +1353,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/footer" />
+        android:src="@drawable/footer"
+        android:visibility="gone"/>
 
 </RelativeLayout>
