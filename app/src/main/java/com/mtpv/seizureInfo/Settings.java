@@ -177,6 +177,7 @@ public class Settings extends Activity {
                     db.execSQL(DataBase.CREATE_Bluetooth);
                     db.insert(DataBase.Bluetooth, null, values);
                     System.out.println("*OFFICER TABLE Insertion Successfully *");
+                    helper.close();
                     finish();
                 } else {
                     showToast("Please Scan Bluetooth Device");
@@ -322,7 +323,7 @@ public class Settings extends Activity {
         mScanBtn.setEnabled(false);
     }
 
-    class Async_UpdateApk extends AsyncTask<Void, Void, String> {
+    private class Async_UpdateApk extends AsyncTask<Void, Void, String> {
 
         @SuppressWarnings("deprecation")
         @Override
@@ -340,8 +341,8 @@ public class Settings extends Activity {
 
             FTPClient ftpClient = new FTPClient();
 
-            if (null != MainActivity.services_url
-                    && MainActivity.services_url.contains("https://www.echallan.org/")) {
+            if (null != MainActivity.service_type
+                    && MainActivity.service_type.contains("live")) {
                 server = "125.16.1.69";
             } else {
                 server = "192.168.11.9";
@@ -354,7 +355,7 @@ public class Settings extends Activity {
                 ftpClient.setBufferSize(1024 * 1024);
                 ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
                 File downloadFile1 = new File("/mnt/sdcard/Download/TSSEIZURE.apk");
-                String remoteFile1 = "/23/TabAPK" + "/TSSEIZURE.apk";
+                String remoteFile1 = "/Evidences/23/TabAPK" + "/TSSEIZURE.apk";
                 OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(downloadFile1));
                 boolean success = ftpClient.retrieveFile(remoteFile1, outputStream);
                 FileOutputStream fileOutput = new FileOutputStream(downloadFile1);

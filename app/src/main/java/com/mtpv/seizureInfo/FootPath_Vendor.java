@@ -158,7 +158,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
     LinearLayout HHH;
 
     ImageButton camera_Btn, off_Btn, gallary_Btn;
-    public static ImageView imgv,img_logo;
+    public static ImageView imgv, img_logo;
     public static ImageView imgv2;
 
     WebService WS = new WebService();
@@ -270,7 +270,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
     GPSTracker gps;
 
     String selectedPs_code = null;
-    TextView officer_Name,officer_Cadre,officer_PS;
+    TextView officer_Name, officer_Cadre, officer_PS;
     MaterialSpinner fine_spinner;
     ArrayList<String> fineAmounts;
     public static String selected_fine;
@@ -283,25 +283,25 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_foot_path__vendor);
         ll = new LinearLayout(this);
-        fine_spinner=(MaterialSpinner)findViewById(R.id.fineSpinner);
+        fine_spinner = (MaterialSpinner) findViewById(R.id.fineSpinner);
         getfineAmounts();
         otp_verify_status = "N";
         img_logo = (ImageView) findViewById(R.id.img_logo);
-        if (MainActivity.uintCode.equals("22")){
+        if (MainActivity.uintCode.equals("22")) {
             img_logo.setImageDrawable(getResources().getDrawable(R.drawable.cyb_logo));
-        }else if (MainActivity.uintCode.equals("23")){
+        } else if (MainActivity.uintCode.equals("23")) {
             img_logo.setImageDrawable(getResources().getDrawable(R.drawable.htp_left));
-        }else if (MainActivity.uintCode.equals("24")){
+        } else if (MainActivity.uintCode.equals("24")) {
             img_logo.setImageDrawable(getResources().getDrawable(R.drawable.rac_logo));
-        }else{
+        } else {
             img_logo.setImageDrawable(getResources().getDrawable(R.drawable.htp_left));
         }
 
-        officer_Name=(TextView)findViewById(R.id.officer_Name);
-        officer_Cadre=(TextView)findViewById(R.id.officer_cadre);
-        officer_PS=(TextView)findViewById(R.id.officer_PS);
+        officer_Name = (TextView) findViewById(R.id.officer_Name);
+        officer_Cadre = (TextView) findViewById(R.id.officer_cadre);
+        officer_PS = (TextView) findViewById(R.id.officer_PS);
 
-        officer_Name.setText(MainActivity.PID_NAME1+"("+MainActivity.CADRE_NAME1+")");
+        officer_Name.setText(MainActivity.PID_NAME1 + "(" + MainActivity.CADRE_NAME1 + ")");
         officer_Cadre.setText(MainActivity.CADRE_NAME1);
         officer_PS.setText(MainActivity.PS_NAME1);
 
@@ -313,7 +313,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         my_ps_arr = new ArrayList<String>();
         my_psCode_arr = new ArrayList<String>();
 
-        Drawable edittext_style = (Drawable) getResources().getDrawable(R.drawable.edittext_style);
+        Drawable edittext_style = getResources().getDrawable(R.drawable.edittext_style);
 
         et_location = (EditText) findViewById(R.id.et_location);
         et_landmark = (EditText) findViewById(R.id.et_landmark);
@@ -334,8 +334,8 @@ public class FootPath_Vendor extends Activity implements LocationListener {
 
         get_location_details = (Button) findViewById(R.id.get_location_details);
 
-        imgString=null;
-        imgString2=null;
+        imgString = null;
+        imgString2 = null;
 
 
         newtimer = new CountDownTimer(1000000000, 50) {
@@ -595,7 +595,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
 
                     latitude = gps.getLatitude();
                     longitude = gps.getLongitude();
-                    imgString=null;
+                    imgString = null;
 
                     FootPath_Vendor.SelPicId = "1";
                     imgv.setRotation(0);
@@ -625,7 +625,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
 
                     latitude = gps.getLatitude();
                     longitude = gps.getLongitude();
-                    imgString2=null;
+                    imgString2 = null;
 
                     FootPath_Vendor.SelPicId = "2";
                     imgv2.setRotation(0);
@@ -703,13 +703,11 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                                     .setError(Html.fromHtml("<font color='white'>Please Enter Valid Aadhaar</font>"));
                             ridcardno_ET.requestFocus();
 
-                        }else if (ridcardno_ET.getText().toString().trim().length() <12){
+                        } else if (ridcardno_ET.getText().toString().trim().length() < 12) {
                             ridcardno_ET
                                     .setError(Html.fromHtml("<font color='white'>Please Enter Valid Aadhaar</font>"));
                             ridcardno_ET.requestFocus();
-                        }
-
-                        else if (ridcardno_ET.getText().toString().trim() != null
+                        } else if (ridcardno_ET.getText().toString().trim() != null
                                 && ridcardno_ET.getText().toString().trim().length() == 12
                                 && ver.isValid(ridcardno_ET.getText().toString().trim())) {
 
@@ -801,7 +799,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         /***************************************************************
          * Gallary Button
          *********************************************************/
-		/*
+        /*
 		 * gallary_Btn.setOnClickListener(new View.OnClickListener() {
 		 * 
 		 * @Override public void onClick(View v) { // TODO Auto-generated method
@@ -927,7 +925,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
             @Override
             public void onClick(View v) {
                 pointNameMap.clear();
-                pointNameMap=new HashMap<String, String>();
+                pointNameMap = new HashMap<String, String>();
 
                 new Async_task_GetPointNames().execute();
 
@@ -1083,8 +1081,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                 } /*else if (imgString2 == null && imgv2.getDrawable().getConstantState() == getResources()
                         .getDrawable(R.drawable.tin).getConstantState()) {
                     showToast("Please Select After Removal Encroachment Image");
-                }*/
-                else if (null==selected_fine  || selected_fine.equals("Select Fine Amount")){
+                }*/ else if (null == selected_fine || selected_fine.equals("Select Fine Amount")) {
                     showToast("Please Select Fine Amount !");
                 }
                 /*
@@ -1093,14 +1090,15 @@ public class FootPath_Vendor extends Activity implements LocationListener {
 					 * getConstantState()) {
 					 * showToast("Please Select After Removal Encroachment Image"
 					 * ); }
-					 */ else if (Ditenditems.isEmpty()) {
+					 */
+                else if (Ditenditems.isEmpty()) {
                     showToast("Please Click Add to Detain Items");
                 } else if (tempContactNumber.trim() != null && tempContactNumber.trim().length() > 1
                         && tempContactNumber.trim().length() != 10) {
                     rmobileno_ET.setError(Html.fromHtml("<font color='white'>Enter Valid mobile number!!</font>"));
                     rmobileno_ET.requestFocus();
                 } else if (tempContactNumber.length() == 10) {
-                    if ((tempContactNumber.charAt(0) == '7') || (tempContactNumber.charAt(0) == '6')|| (tempContactNumber.charAt(0) == '8')
+                    if ((tempContactNumber.charAt(0) == '7') || (tempContactNumber.charAt(0) == '6') || (tempContactNumber.charAt(0) == '8')
                             || (tempContactNumber.charAt(0) == '9')) {
 
                         if (Dashboard.OtpStatus.equalsIgnoreCase("Y") && !FootPath_Vendor.otp_verify_status.equalsIgnoreCase("Y")) {
@@ -1190,8 +1188,8 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                             }
 
                             try {
-                                if (imgString2==null){
-                                    imgString2="";
+                                if (imgString2 == null) {
+                                    imgString2 = "";
                                 }
                                 edit.putString("tinPicture", imgString2);
                             } catch (Exception e) {
@@ -1430,7 +1428,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         });
     }
 
-    public void getfineAmounts(){
+    public void getfineAmounts() {
 
         new Async_getFineAmounts().execute();
 
@@ -1631,11 +1629,11 @@ public class FootPath_Vendor extends Activity implements LocationListener {
             super.onPostExecute(result);
             removeDialog(PROGRESS_DIALOG);
 
-            if (ServiceHelper.getFineMasterresp != null && !"NA".equals(ServiceHelper.getFineMasterresp) ) {
-                fineAmounts=new ArrayList<String>();
-                String[] fineAmnt=ServiceHelper.getFineMasterresp.split("\\,");
+            if (ServiceHelper.getFineMasterresp != null && !"NA".equals(ServiceHelper.getFineMasterresp)) {
+                fineAmounts = new ArrayList<String>();
+                String[] fineAmnt = ServiceHelper.getFineMasterresp.split("\\,");
 
-                fineAmounts= new ArrayList<String>(Arrays.asList(fineAmnt));
+                fineAmounts = new ArrayList<String>(Arrays.asList(fineAmnt));
                 ArrayAdapter dataAdapter = new ArrayAdapter<>(getApplicationContext(),
                         R.layout.spinner_item, R.id.txt_item, fineAmounts);
                 dataAdapter.setDropDownViewResource(R.layout.spinner_item);
@@ -1643,7 +1641,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                 fine_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        selected_fine=fine_spinner.getSelectedItem().toString();
+                        selected_fine = fine_spinner.getSelectedItem().toString();
                     }
 
                     @Override
@@ -1829,12 +1827,13 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                         String[] cirleDet = locationDet.split("\\:");
 
                         try {
+                           /* db.open();
 
+                            SQLiteDatabase db2 = openOrCreateDatabase(db.DATABASE_NAME, MODE_PRIVATE, null);
+                            db2.execSQL("DROP TABLE IF EXISTS " + db.psName_table);
+                            db2.execSQL(db.psNamesCreation);*/
 
-                            db.open();
-                           // db.execSQL("delete from " + DataBase.psName_table);
-
-                            db.insertPsNameDetails("" + cirleDet[0], "" + cirleDet[1]);
+                            // db.insertPsNameDetails("" + cirleDet[0], "" + cirleDet[1]);
 
                             psNameMap.put(cirleDet[1].trim(), cirleDet[0].trim());
                             // Log.i("All Values :::",""+cirleDet[0]+"\n
@@ -1850,6 +1849,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                     for (int i = 0; i < ServiceHelper.psMaster_resp_array.length; i++) {
                         String allPSnames = ServiceHelper.psMaster_resp_array[i].split("\\:")[1];
                         my_ps_arr.add(allPSnames);
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -2202,7 +2202,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
             } else {
                 showToast("No data Found!");
                 respondent_aadhaar_details_layout.setVisibility(View.VISIBLE);
-
 
 
             }
@@ -2597,7 +2596,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                             }
                         }
                     });
-                }else{
+                } else {
                     showToast("Please check the network and Try again!");
                 }
             } catch (Exception e) {
@@ -2645,7 +2644,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         @Override
         protected String doInBackground(Void... params) {
             // TODO Auto-generated method stub
-            String query = "select PS_CODE from " + DataBase.psName_table + " where PS_NAME='"
+           /* String query = "select PS_CODE from " + DataBase.psName_table + " where PS_NAME='"
                     + psname_Btn.getText().toString().trim() + "'";
 
             my_psCode_arr.clear();
@@ -2668,7 +2667,15 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                 if (db != null) {
                     db.close();
                 }
+            }*/
+            for (String mapPSName : psNameMap.keySet()) {
+                if (psname_Btn.getText().toString().trim().equals(mapPSName)) {
+                    selectedPs_code = psNameMap.get(mapPSName);
+                    break;
+                }
+
             }
+
 
             ServiceHelper.getPointDetailsByPscode("" + selectedPs_code);
 
@@ -2697,7 +2704,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                         String[] cirleDet = locationDet.split("\\:");
                         try {
                             db.open();
-                            db.insertPointNamesDetails("" + cirleDet[0], "" + cirleDet[1]);
+                            DataBase.insertPointNamesDetails("" + cirleDet[0], "" + cirleDet[1]);
                             pointNameMap.put(cirleDet[1].trim(), cirleDet[0].trim());
                             Log.i("All Points Values :::", "" + cirleDet[0] + "\n " + cirleDet[1]);
                         } catch (Exception e) {
@@ -2873,7 +2880,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                         canvas.drawText("Long :" + longitude, xPos, yPos + 500, paint);
                         canvas.rotate(90);
                         canvas.restore();
-
 
 
                         Display d = getWindowManager().getDefaultDisplay();
@@ -3081,13 +3087,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         }
     }
 
-    /*************************************************************************
-     * Camera Method
-     *******************************************/
-
-    /*************************************************************************
-     * Date methos
-     ********************************************/
 
     private DatePickerDialog.OnDateSetListener pDateSetListener = new DatePickerDialog.OnDateSetListener() {
 
@@ -3114,9 +3113,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         }
     };
 
-    /**
-     * Updates the date in the TextView
-     */
 
     @SuppressLint("SimpleDateFormat")
     private void updateDisplay() {

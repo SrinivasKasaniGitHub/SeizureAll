@@ -72,12 +72,12 @@
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\drawable-mdpi\\header.png"
     },
     {
-        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\camera.png",
-        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\drawable-mdpi\\camera.png"
-    },
-    {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\mptvlogo.png",
         "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\drawable-mdpi\\mptvlogo.png"
+    },
+    {
+        "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\camera.png",
+        "source": "D:\\Android\\SeizureAll\\app\\src\\main\\res\\drawable-mdpi\\camera.png"
     },
     {
         "merged": "D:\\Android\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\crane.png",

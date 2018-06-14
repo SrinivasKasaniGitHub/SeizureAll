@@ -1,4 +1,4 @@
-#Wed Jun 06 12:43:54 IST 2018
+#Thu Jun 14 12:35:05 IST 2018
 base.0=D\:\\Android\\SeizureAll\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
 file.0=D\:\\Android\\SeizureAll\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

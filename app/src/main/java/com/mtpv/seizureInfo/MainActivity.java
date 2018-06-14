@@ -83,7 +83,7 @@ public class MainActivity extends Activity implements LocationListener,OnClickLi
     SharedPreferences.Editor editor;
 
     public static String URL = "", URLOTPStatus = "";
-    String service_type = "";
+    public static String service_type = "";
     public static String services_url = "";
     String ftps_url = "";
     private String url_to_fix = "/services/BServiceImpl?wsdl";
@@ -201,7 +201,6 @@ public class MainActivity extends Activity implements LocationListener,OnClickLi
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
 
         preference = getSharedPreferences("preferences", MODE_PRIVATE);
         service_type = preference.getString("servicetype", "live");

@@ -196,6 +196,8 @@ public class DataBase {
 		con.put(ps_name_settings, ps_name);
 		db.insert(psName_table, null, con);
 	}
+
+
 	
 	public static void insertBluettoth(String ps_code, String ps_name) {
 		ContentValues con = new ContentValues();
