@@ -12,7 +12,7 @@
         layout="@layout/activity_header">
 
     </include>
-<!--    <RelativeLayout
+    <!--<RelativeLayout
         android:id="@+id/header"
         style="@style/header_style"
         android:layout_width="match_parent"

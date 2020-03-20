@@ -181,16 +181,16 @@
             
             <LinearLayout
                 android:id="@+id/h120"
-                android:layout_width="558dp"
+                android:layout_width="fill_parent"
                 android:layout_height="70dp"
                 android:layout_below="@+id/listview_devicesfound"
                 android:layout_marginTop="30dp"
                 android:orientation="horizontal" >
                
-        	    <Button
+        	    		<Button
         	    	       android:id="@+id/cancel_Btn"
         	    	       style="@style/naviblue_custom_style"
-        	    	       android:layout_width="250dp"
+        	    	       android:layout_width="350dp"
         	    	       android:layout_height="65dp"
         	    	       android:layout_x="20dp"
         	    	       android:layout_y="620dp"
@@ -199,11 +199,11 @@
         	    	       android:textSize="22sp"
         	    	       android:textStyle="bold" />
         	    	
-        	   	<TextView
+        	   		<TextView
         	    	    android:layout_width="10dp"
         	    	    android:layout_height="wrap_content"
         	    	    android:layout_gravity="center"
-        	    	    android:layout_marginLeft="30dp"
+        	    	    android:layout_marginLeft="10dp"
         	    	    android:text=""
         	    	    android:textAppearance="?android:attr/textAppearanceMedium"
         	    	    android:textSize="30sp" />
@@ -212,7 +212,7 @@
         	    <Button
         	    	    android:id="@+id/save"
         	    	    style="@style/naviblue_custom_style"
-        	    	    android:layout_width="250dp"
+        	    	    android:layout_width="350dp"
         	    	    android:layout_height="65dp"
         	    	    android:layout_x="320dp"
         	    	    android:layout_y="620dp"

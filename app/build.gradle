@@ -1,13 +1,21 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
 
+    /*signingConfigs {
+        config {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('C:/Users/Srinivas/.android/DebugFile/debug.keystore')
+            storePassword 'android'
+        }
+    }
+*/
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.mtpv.seizure"
-        minSdkVersion 19
-        targetSdkVersion 25
+        minSdkVersion 21
+        targetSdkVersion 28
     }
 
     buildTypes {
@@ -26,17 +34,17 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:25.3.1'
-    compile files('libs/AnalogicsVersa3TBTPrinterAPI.jar')
-    compile files('libs/commons-net-3.5.jar')
-    compile files('libs/commons-validator-1.4.0.jar')
-    compile files('libs/ksoap2-android-assembly-2.4-jar-with-dependencies.jar')
-    compile files('libs/opencv_library-2.4.3.jar')
-    compile files('libs/org-apache-commons-codec.jar')
-    compile 'com.android.support:support-v4:25.3.1'
-    compile 'com.android.support:support-core-utils:25.3.1'
-    compile files('libs/sun.misc.BASE64Decoder.jar')
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.github.ganfra:material-spinner:1.1.1'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation files('libs/AnalogicsVersa3TBTPrinterAPI.jar')
+    implementation files('libs/commons-net-3.5.jar')
+    implementation files('libs/commons-validator-1.4.0.jar')
+    implementation files('libs/ksoap2-android-assembly-2.4-jar-with-dependencies.jar')
+    implementation files('libs/opencv_library-2.4.3.jar')
+    implementation files('libs/org-apache-commons-codec.jar')
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:support-core-utils:28.0.0'
+    implementation files('libs/sun.misc.BASE64Decoder.jar')
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.github.ganfra:material-spinner:1.1.1'
 
 }

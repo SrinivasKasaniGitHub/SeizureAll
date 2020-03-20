@@ -81,11 +81,11 @@
 
                 <Button
                     android:id="@+id/back_Btn"
-                    android:layout_width="200dp"
+                    android:layout_width="350dp"
                     android:layout_height="60dp"
                     android:background="@drawable/navi_blue_btn_style"
                     android:text="Back"
-                    android:layout_marginLeft="70dp"
+                    android:layout_marginLeft="0dp"
                     android:textSize="25sp"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
@@ -94,16 +94,16 @@
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginLeft="0dp"
                     android:text=""
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textSize="25sp" />
 
                 <Button
                     android:id="@+id/print_Btn"
-                    android:layout_width="200dp"
+                    android:layout_width="350dp"
                     android:layout_height="60dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/navi_blue_btn_style"
                     android:text="Print"
                     android:textColor="#ffffff"
@@ -113,7 +113,7 @@
 
             <LinearLayout
                 android:id="@+id/a11"
-                android:layout_width="558dp"
+                android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:layout_margin="5dp"
                 android:orientation="horizontal" >
@@ -121,7 +121,7 @@
 
             <LinearLayout
                 android:id="@+id/a12"
-                android:layout_width="558dp"
+                android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:layout_margin="5dp"
                 android:orientation="horizontal" >
@@ -129,7 +129,7 @@
 
             <LinearLayout
                 android:id="@+id/a104"
-                android:layout_width="558dp"
+                android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:layout_margin="5dp"
                 android:orientation="horizontal" >

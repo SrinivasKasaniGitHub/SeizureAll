@@ -6,7 +6,6 @@
   android:background="@drawable/bgcolor" >
 
   <!-- Header aligned to top -->
-
 	<include
 		android:id="@+id/header"
 		layout="@layout/activity_header">
@@ -58,21 +57,21 @@
 
 	</RelativeLayout>-->
 
-	<!-- Footer aligned to bottom -->
-	<RelativeLayout
-		android:id="@+id/footer"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
-		android:gravity="center"
-		android:visibility="gone">
+  <!-- Footer aligned to bottom -->
+  <RelativeLayout
+    android:id="@+id/footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:gravity="center"
+	  android:visibility="gone">
 
-		<ImageView
-			android:id="@+id/imageView2"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/footer" />
-	</RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/footer" />
+  </RelativeLayout>
 
   <!-- Scrollable Content below header and above footer -->
   <ScrollView
@@ -159,23 +158,24 @@
               android:text=""
               android:textColor="#191970"
               android:textSize="28sp" />
-		   <TextView
-			   android:id="@+id/ffd"
-			   style="@style/navi_text_style"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:text="Blutooth Devices Display Here"
-			   android:textStyle="bold"
-			   android:textSize="25sp"
-			   android:visibility="visible"
-			   android:layout_below="@+id/buletooth_text"/>
            
+            <TextView
+                android:id="@+id/ffd"
+                style="@style/navi_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blutooth Devices Display Here"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:visibility="visible"
+                android:layout_below="@+id/buletooth_text"/>
+            
             <ListView
                 android:id="@+id/listview_devicesfound"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_below="@+id/buletooth_text"
+                android:layout_below="@+id/ffd"
                 android:layout_centerInParent="true" >
             </ListView>
             

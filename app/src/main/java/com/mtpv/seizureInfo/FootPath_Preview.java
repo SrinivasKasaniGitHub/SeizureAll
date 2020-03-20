@@ -534,7 +534,7 @@ public class FootPath_Preview extends Activity {
                         bookedPsCode = FootPath_Vendor.psNameMap.get(bookdpsName);
                     }
                 }
-                //Log.i("detendItems_Selected_tosend @ service::::", ""+detendItems_Selected_tosend);
+
                 for (String pntName : FootPath_Vendor.pointNameMap.keySet()) {
                     if (pntName.trim().equals(pointName)) {
                         pointCD="";

@@ -160,7 +160,7 @@ public class MainActivity extends Activity implements LocationListener,OnClickLi
         appVersion = getResources().getString(R.string.version);
 
         mErrorString = new SparseIntArray();
-        img_ip_settings=(ImageView)findViewById(R.id.img_ip_settings);
+        img_ip_settings=findViewById(R.id.img_ip_settings);
 
         if (Build.VERSION.SDK_INT > 22 && !hasPermissions(requiredPermissions)) {
 

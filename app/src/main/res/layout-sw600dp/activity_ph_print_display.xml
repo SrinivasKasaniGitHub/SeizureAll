@@ -6,26 +6,26 @@
   android:background="@drawable/bgcolor" >
 
   <!-- Header aligned to top -->
-
     <include
         android:id="@+id/header"
         layout="@layout/activity_header">
 
     </include>
-<!--  <RelativeLayout
+  <!--<RelativeLayout
     android:id="@+id/header"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"
     android:gravity="center" >
 
-    <ImageView
+
+    &lt;!&ndash;<ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:src="@drawable/header"
         android:contentDescription="@null"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY" />&ndash;&gt;
   </RelativeLayout>-->
 
   <!-- Footer aligned to bottom -->

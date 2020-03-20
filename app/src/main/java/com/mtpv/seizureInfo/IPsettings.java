@@ -46,7 +46,7 @@ public class IPsettings extends Activity implements OnClickListener {
     /*private String test_service_url = "http://192.168.11.4/eTicketMobileTest";*/
     /*-----below is commented just to use the wifi : 22-01-2015-----*/
     //public static String test_service_url = "http://192.168.11.55:8080/";
-    public static String test_service_url = "http://192.168.11.10:8080/TS39BService";//125.16.1.70:8080
+    public static String test_service_url = "http://125.16.1.70:8080/TS39BService";//125.16.1.70:8080
     // public static String test_service_url = "http://192.168.11.4/";
 
 
@@ -61,13 +61,12 @@ public class IPsettings extends Activity implements OnClickListener {
     //private String ftp_fix = "192.168.11.9:99";
     String service_type = "live";
 
-    private String live_service_url = "https://www.echallan.org/TS39BService";
+    private String live_service_url = "https://echallan.tspolice.gov.in/TS39BService";
 
     public static String open_ftp_fix = "ftp://125.16.1.69:1305";
     public static String ftp_fix = "ftp://192.168.11.9:1305";
 
 
-    @SuppressWarnings("deprecation")
     @SuppressLint("WorldReadableFiles")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

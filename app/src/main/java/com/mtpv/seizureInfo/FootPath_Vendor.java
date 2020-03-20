@@ -34,7 +34,8 @@ import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
-import android.provider.MediaStore;
+import android.provider.*;
+import android.provider.Settings;
 import android.support.v4.content.FileProvider;
 import android.telephony.TelephonyManager;
 import android.text.Html;
@@ -95,6 +96,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 import fr.ganfra.materialspinner.MaterialSpinner;
+
+import static android.provider.Settings.Secure.LOCATION_MODE_HIGH_ACCURACY;
 
 @SuppressWarnings("deprecation")
 @SuppressLint({"NewApi", "SimpleDateFormat", "DefaultLocale"})
@@ -274,7 +277,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
     MaterialSpinner fine_spinner;
     ArrayList<String> fineAmounts;
     public static String selected_fine;
-
 
     @SuppressWarnings({"unused"})
     @SuppressLint({"NewApi", "SimpleDateFormat", "InflateParams"})
@@ -588,9 +590,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                 // TODO Auto-generated method stub
 
                 gps = new GPSTracker(FootPath_Vendor.this);
-
-
-                // check if GPS enabled
                 if (gps.getLocation() != null && latitude != 0.0 && longitude != 0.0) {
 
                     latitude = gps.getLatitude();
@@ -605,9 +604,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                     gps.showSettingsAlert();
 
                 }
-                /*
-                 * FootPath_Vendor.SelPicId = "1"; selectImage();
-				 */
 
             }
         });
@@ -646,6 +642,18 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             // Toast.makeText(this, "GPS is Enabled in your devide",
             // Toast.LENGTH_SHORT).show();
+            int locationMode = 0;
+            try {
+                locationMode = android.provider.Settings.Secure.getInt(getContentResolver(), android.provider.Settings.Secure.LOCATION_MODE);
+                if (locationMode == LOCATION_MODE_HIGH_ACCURACY) {
+
+                } else {
+                    showGPSDisabledAlertToUser();
+                }
+            } catch (Settings.SettingNotFoundException e) {
+                e.printStackTrace();
+            }
+
         } else {
             showGPSDisabledAlertToUser();
         }
@@ -800,7 +808,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
          * Gallary Button
          *********************************************************/
         /*
-		 * gallary_Btn.setOnClickListener(new View.OnClickListener() {
+         * gallary_Btn.setOnClickListener(new View.OnClickListener() {
 		 * 
 		 * @Override public void onClick(View v) { // TODO Auto-generated method
 		 * stub
@@ -821,7 +829,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
          *********************************************************/
 
 		/*
-		 * camera_Btn.setOnClickListener(new View.OnClickListener() {
+         * camera_Btn.setOnClickListener(new View.OnClickListener() {
 		 * 
 		 * @Override public void onClick(View v) { // TODO Auto-generated method
 		 * stub
@@ -873,7 +881,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         psMap = new HashMap<String, String>();
 
 		/*
-		 * DBH = new DataBase(getApplicationContext()); try { Cursor res1 =
+         * DBH = new DataBase(getApplicationContext()); try { Cursor res1 =
 		 * DBH.Eq(PsNameMaster); res1.moveToFirst(); while(res1.isAfterLast() ==
 		 * false){
 		 * PsNameMasterList.add(res1.getString(res1.getColumnIndex("PsName")));
@@ -938,7 +946,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 // idBtnFLG = true ;
-				/*
+                /*
 				 * rname_ET.setText(""); rfname_ET.setText("");
 				 * radderss_ET.setText(""); rmobileno_ET.setText("");
 				 * rage_ET.setText("");
@@ -1004,12 +1012,8 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                     Itemname_ET.setText("");
                     Itemname_ET.requestFocus();
                     qty_ET.setText("");
-                    // amount_ET.setText("");
-
                     detendLinearLayout.addView(addView);
-
                     Button buttonRemove = (Button) addView.findViewById(R.id.remove);
-
                     buttonRemove.setOnClickListener(new OnClickListener() {
 
                         public void onClick(View v) {
@@ -1026,18 +1030,12 @@ public class FootPath_Vendor extends Activity implements LocationListener {
 
             @Override
             public void onClick(View v) {
-
                 gps = new GPSTracker(FootPath_Vendor.this);
-
-                // check if GPS enabled
                 if (gps.getLocation() != null) {
-
                     latitude = gps.getLatitude();
                     longitude = gps.getLongitude();
-
                 } else {
                     gps.showSettingsAlert();
-
                 }
 
                 String tempContactNumber = rmobileno_ET.getText().toString().trim();
@@ -1045,8 +1043,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                 if (psname_Btn.getText().toString().trim() == null
                         || psname_Btn.getText().toString().equals("Select PS Name")) {
                     showToast("Please Select PS Name");
-                } else if (pointname_Btn.getText().toString().trim() == null
-                        || pointname_Btn.getText().toString().equals("Select Point Name")) {
+                } else if (pointname_Btn.getText().toString().equals("Select Point Name")) {
                     showToast("Please Select Point Name");
                 } else if (rname_ET.getText().toString().trim() == null
                         || rname_ET.getText().toString().trim().equals("")) {
@@ -1064,13 +1061,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                         || radderss_ET.getText().toString().trim().equals("")) {
                     radderss_ET.setError(Html.fromHtml("<font color='white'>Please Enter Respondent Address</font>"));
                     radderss_ET.requestFocus();
-                } /*
-					 * else if (ridcardno_ET.getText().toString().trim()==null
-					 * || ridcardno_ET.getText().toString().trim().equals("")) {
-					 * ridcardno_ET.setError(Html.
-					 * fromHtml("<font color='black'>Please Enter Respondent ID Proof</font>"
-					 * )); ridcardno_ET.requestFocus(); }
-					 */ else if (rmobileno_ET.getText().toString().trim() == null
+                } else if (rmobileno_ET.getText().toString().trim() == null
                         || rmobileno_ET.getText().toString().trim().equals("")) {
                     rmobileno_ET
                             .setError(Html.fromHtml("<font color='white'>Please Enter Respondent Mobile No</font>"));
@@ -1078,20 +1069,9 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                 } else if (imgString == null && imgv.getDrawable().getConstantState() == getResources()
                         .getDrawable(R.drawable.photo).getConstantState()) {
                     showToast("Please Select Encroachment Image");
-                } /*else if (imgString2 == null && imgv2.getDrawable().getConstantState() == getResources()
-                        .getDrawable(R.drawable.tin).getConstantState()) {
-                    showToast("Please Select After Removal Encroachment Image");
-                }*/ else if (null == selected_fine || selected_fine.equals("Select Fine Amount")) {
+                } else if (null == selected_fine || selected_fine.equals("Select Fine Amount")) {
                     showToast("Please Select Fine Amount !");
-                }
-                /*
-					 * else if (imgv2.getDrawable().getConstantState() ==
-					 * getResources().getDrawable(R.drawable.photo).
-					 * getConstantState()) {
-					 * showToast("Please Select After Removal Encroachment Image"
-					 * ); }
-					 */
-                else if (Ditenditems.isEmpty()) {
+                } else if (Ditenditems.isEmpty()) {
                     showToast("Please Click Add to Detain Items");
                 } else if (tempContactNumber.trim() != null && tempContactNumber.trim().length() > 1
                         && tempContactNumber.trim().length() != 10) {
@@ -1102,8 +1082,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                             || (tempContactNumber.charAt(0) == '9')) {
 
                         if (Dashboard.OtpStatus.equalsIgnoreCase("Y") && !FootPath_Vendor.otp_verify_status.equalsIgnoreCase("Y")) {
-
-
                             showToast("Please Verify Otp");
                         } else {
                             Calendar c = Calendar.getInstance();
@@ -1429,11 +1407,8 @@ public class FootPath_Vendor extends Activity implements LocationListener {
     }
 
     public void getfineAmounts() {
-
         new Async_getFineAmounts().execute();
-
     }
-
 
     private void EnableGPSDisabledAlertToUser() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -1519,7 +1494,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                     }
                 }
                 // if GPS Enabled get lat/long using GPS Services
-                if (isGPSEnabled) {
+                if (isGPSEnabled && location == null) {
                     if (location == null) {
                         m_locationlistner.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
@@ -1689,6 +1664,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
             removeDialog(PROGRESS_DIALOG);
 
             if (ServiceHelper.otp_Send_resp != null) {
+
                 if ((!ServiceHelper.otp_Send_resp.equals("0") || !ServiceHelper.otp_Send_resp.equals("")
                         || !ServiceHelper.otp_Send_resp.equals("NA")
                         || !ServiceHelper.otp_Send_resp.equals("anyType{}"))) {
@@ -2006,14 +1982,11 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         }
     }
 
-    /*********************** Network Check ***************************/
     private boolean isOnline() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
-
-    /*********************** Network Check ***************************/
 
     @SuppressWarnings("unused")
     private class Async_GetGPS_Address extends AsyncTask<Void, Void, String> {
@@ -2092,10 +2065,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
             // TODO Auto-generated method stub
             ServiceHelper.preViousHistry("1", "" + ridcardno_ET.getText().toString().trim(),
                     "" + ridcardno_ET.getText().toString().trim(), business_Type);
-
-            // ServiceHelper.get_Location(""+latitude, ""+longitude);
-
-            return null;
+           return null;
         }
 
         @Override
@@ -2103,11 +2073,8 @@ public class FootPath_Vendor extends Activity implements LocationListener {
             // TODO Auto-generated method stub
             super.onPostExecute(result);
             removeDialog(PROGRESS_DIALOG);
-
             if (ServiceHelper.prevHistry_resp != null && !ServiceHelper.prevHistry_resp.equals("NA")) {
-
                 if (isNetworkEnabled) {
-
                     if (ServiceHelper.prevHistry_resp.equals("0")) {
                         showToast("No Previous Data Found !!!");
                         selected_val = 300;
@@ -2118,10 +2085,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                         showToast("No Previous Data Found !!!");
                         selected_val = 300;
                     } else if (ServiceHelper.prevHistry_resp.length() > 20) {
-
                         String strJson = ServiceHelper.prevHistry_resp;
-
-                        // new AsyncGetIDDetails().execute();
                         respondent_aadhaar_details_layout.setVisibility(View.VISIBLE);
                         try {
                             JSONObject jsonRootObject = new JSONObject(strJson);// array
@@ -2143,9 +2107,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                                 }
                             } else {
                                 for (int i = 0; i < jsonArray.length(); i++) {
-
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-
                                     offenceDate = jsonObject.optString("OFFENCE_DT");
                                     firm_regno = jsonObject.optString("FIRM_REGN_NO");
                                     respondentName = jsonObject.optString("RESPONDENT_NAME");
@@ -2187,7 +2149,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                         } else if (ridcardno_ET.getText() != null
                                 && ridcardno_ET.getText().toString().trim().length() == 12
                                 && (ver.isValid(ridcardno_ET.getText().toString()))) {
-
                             if ("Y".equals(AADHAAR_DATA_FLAG)) {
                                 if (isOnline()) {
                                     new AsyncGetIDDetails().execute();
@@ -2195,26 +2156,17 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                                     showToast("Please Check Internet Connection");
                                 }
                             }
-
                         }
                     }
                 }
             } else {
                 showToast("No data Found!");
                 respondent_aadhaar_details_layout.setVisibility(View.VISIBLE);
-
-
             }
-
         }
-
     }
 
-    /********************
-     * Get Details BY AADHAAR NO Class AsyncGetIDDetails Starts
-     ****************************/
-
-    class AsyncGetIDDetails extends AsyncTask<Void, Void, String> {
+    public class AsyncGetIDDetails extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
@@ -2378,15 +2330,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         }
     }
 
-    /********************
-     * Get Details BY RC Class AsyncGetIDDetails Ends
-     ****************************/
-
-    /********************
-     * Get Details BY Driving License Class AsyncGetDLDetails Starts
-     ****************************/
-
-    class AsyncGetDLDetails extends AsyncTask<Void, Void, String> {
+    public class AsyncGetDLDetails extends AsyncTask<Void, Void, String> {
 
         // ProgressDialog progress = ProgressDialog.show(FootPath_Vendor.this,
         // "Loading...!", "Please wait......Processing!!!");
@@ -2513,15 +2457,7 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         }
     }
 
-    /********************
-     * Get Details BY Driving License Class AsyncGetDLDetails Ends
-     ****************************/
-
-    /********************
-     * Get Details BY RC Class AsyncGetRCDetails Starts
-     ****************************/
-
-    class AsyncGetRCDetails extends AsyncTask<Void, Void, String> {
+    public class AsyncGetRCDetails extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
@@ -2635,51 +2571,17 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         }
     }
 
-    /********************
-     * Get Details BY RC Class AsyncGetRCDetails Ends
-     ****************************/
-
     public class Async_task_GetPointNames extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
-            // TODO Auto-generated method stub
-           /* String query = "select PS_CODE from " + DataBase.psName_table + " where PS_NAME='"
-                    + psname_Btn.getText().toString().trim() + "'";
-
-            my_psCode_arr.clear();
-
-            try {
-                db.open();
-                Cursor loc_cursor = DataBase.db.rawQuery(query, null);
-
-                if (loc_cursor.moveToNext()) {
-                    do {
-                        selectedPs_code = "" + loc_cursor.getString(0);
-
-                    } while (loc_cursor.moveToNext());
-                }
-
-                loc_cursor.close();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                if (db != null) {
-                    db.close();
-                }
-            }*/
             for (String mapPSName : psNameMap.keySet()) {
                 if (psname_Btn.getText().toString().trim().equals(mapPSName)) {
                     selectedPs_code = psNameMap.get(mapPSName);
                     break;
                 }
-
             }
-
-
             ServiceHelper.getPointDetailsByPscode("" + selectedPs_code);
-
-            // }
             return null;
         }
 
@@ -2708,7 +2610,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                             pointNameMap.put(cirleDet[1].trim(), cirleDet[0].trim());
                             Log.i("All Points Values :::", "" + cirleDet[0] + "\n " + cirleDet[1]);
                         } catch (Exception e) {
-                            // TODO: handle exception
                             if (db != null) {
                                 db.close();
                             }
@@ -2721,7 +2622,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                         Log.i("allPSnames", allPoints);
                         my_points_arr.add(allPoints);
                     }
-
                     runOnUiThread(new Runnable() {
 
                         @Override
@@ -2737,7 +2637,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                             title.setCompoundDrawablesWithIntrinsicBounds(R.drawable.dialog_logo, 0, R.drawable.dialog_logo, 0);
                             title.setPadding(20, 0, 20, 0);
                             title.setHeight(70);
-
                             AlertDialog.Builder builderSingle = new AlertDialog.Builder(FootPath_Vendor.this);
                             builderSingle.setCustomTitle(title);
                             builderSingle.setItems(my_points_arr.toArray(new CharSequence[my_points_arr.size()]),
@@ -2748,13 +2647,10 @@ public class FootPath_Vendor extends Activity implements LocationListener {
                                             // TODO Auto-generated method stub
                                             pointname_Btn.setText(my_points_arr.get(which));
                                             SPSPN = pointname_Btn.getText().toString();
-
                                         }
 
                                     });
-
                             builderSingle.show().getWindow().setLayout(500, 600);
-
                         }
                     });
                 } catch (Exception e) {
@@ -2764,8 +2660,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
             } else {
                 showToast("Please check the network and Try again!");
             }
-
-
         }
     }
 
@@ -2782,36 +2676,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
         toastView.setBackgroundResource(R.drawable.toast_background);
         toast.show();
     }
-
-	/*
-	 * protected void onActivityResult(int requestCode, int resultCode, Intent
-	 * data) { if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
-	 * 
-	 * 
-	 * File imagFile = new File(imageDir, imageFileName); try { photo =
-	 * BitmapFactory.decodeStream(new FileInputStream(imagFile)); } catch
-	 * (FileNotFoundException e) { // TODO Auto-generated catch block
-	 * e.printStackTrace(); } imgv.setImageBitmap(photo); } if (requestCode ==
-	 * PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null &&
-	 * data.getData() != null) {
-	 * 
-	 * Uri uri = data.getData();
-	 * 
-	 * try { photo = MediaStore.Images.Media.getBitmap(getContentResolver(),
-	 * uri);
-	 * 
-	 * imgv.setImageBitmap(photo); } catch (IOException e) {
-	 * e.printStackTrace(); }
-	 * 
-	 * }
-	 * 
-	 * ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-	 * photo.compress(Bitmap.CompressFormat.JPEG,20, bytes);
-	 * 
-	 * byteArray = bytes.toByteArray();
-	 * 
-	 * imgString = Base64.encodeToString(byteArray, Base64.NO_WRAP); }
-	 */
 
     @SuppressWarnings("unused")
     @Override
@@ -3086,7 +2950,6 @@ public class FootPath_Vendor extends Activity implements LocationListener {
             }
         }
     }
-
 
     private DatePickerDialog.OnDateSetListener pDateSetListener = new DatePickerDialog.OnDateSetListener() {
 

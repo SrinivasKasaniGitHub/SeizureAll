@@ -57,18 +57,12 @@ public class Dashboard extends Activity {
     LinearLayout footpath_vendor, report, settings, duplicate_print, release_doc, images_layout, previous_his;
     ImageView logout, image_to_capture,img_logo;
     TextView usernameTV;
-
-
-
     final int PROGRESS_DIALOG = 1;
-
-
     String server = "192.168.11.9";
     int port = 1305;
     String username = "ftpuser";
     String password = "Dk0r$l1qMp6";
     String filename = "Version-1.5.1.apk";
-
     @SuppressWarnings("unused")
     private static final int BUFFER_SIZE = 4096;
     ProgressBar progress;
@@ -76,9 +70,7 @@ public class Dashboard extends Activity {
     int downloadedSize = 0;
     int totalSize = 0;
     TextView cur_val, ffd;
-
     DataBase db;
-
     public static String class_clarify = null, OtpStatus = "", OtpResponseDelayTime;
     public static String[] otp_Master;
     TextView officer_Name,officer_Cadre,officer_PS;
@@ -90,7 +82,6 @@ public class Dashboard extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_dashboard);
 
-        //shop_vendor = (LinearLayout)findViewById(R.id.shop_vendor);
         footpath_vendor = (LinearLayout) findViewById(R.id.footpath_vendor);
         report = (LinearLayout) findViewById(R.id.report);
         settings = (LinearLayout) findViewById(R.id.settings);
@@ -103,7 +94,6 @@ public class Dashboard extends Activity {
         img_DPrint=(ImageView)findViewById(R.id.img_dp_print);
         img_Prevs_History=(ImageView)findViewById(R.id.img_p_history);
         img_Relse_Items=(ImageView)findViewById(R.id.img_release_Items);
-
         logout = (ImageView) findViewById(R.id.logout);
         img_logo = (ImageView) findViewById(R.id.img_logo);
 
@@ -125,11 +115,7 @@ public class Dashboard extends Activity {
         officer_Cadre.setText(MainActivity.CADRE_NAME1);
         officer_PS.setText(MainActivity.PS_NAME1);
 
-
-
-
         image_to_capture = (ImageView) findViewById(R.id.image_to_capture);
-
         usernameTV = (TextView) findViewById(R.id.usernameTV);
 
         SharedPreferences sharedPreferences = getSharedPreferences("loginValus", MODE_PRIVATE);
@@ -463,7 +449,6 @@ public class Dashboard extends Activity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-
     private void showGPSDisabledAlertToUser() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("    GPS is Disabled in your Device \n            Please Enable GPS?")
@@ -693,8 +678,13 @@ public class Dashboard extends Activity {
 
             } catch (SocketException | FileNotFoundException e) {
                 e.printStackTrace();
+                removeDialog(PROGRESS_DIALOG);
+                showToast("Please contact e-Challan team !");
+
             } catch (IOException e) {
                 e.printStackTrace();
+                removeDialog(PROGRESS_DIALOG);
+                showToast("Please contact e-Challan team !");
             }
             return null;
         }

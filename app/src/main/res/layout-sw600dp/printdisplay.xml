@@ -30,16 +30,16 @@
 
 
     <ScrollView
-        android:layout_width="560dp"
+        android:layout_width="fill_parent"
         android:layout_height="740dp"
-        android:layout_x="20dp"
+        android:layout_x="0dp"
         android:layout_y="170dp"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbars="vertical" >
 
         <LinearLayout
             android:id="@+id/violation_linerlayout"
-            android:layout_width="560dp"
+            android:layout_width="fill_parent"
             android:layout_height="550dp"
             android:layout_margin="5dp"
             android:orientation="vertical" >
@@ -74,17 +74,15 @@
 
             <LinearLayout
                 android:id="@+id/a10"
-                android:layout_width="558dp"
+                android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:layout_margin="5dp"
                 android:orientation="horizontal" >
 
                 <Button
                     android:id="@+id/back_Btn"
-                    android:layout_width="200dp"
+                    android:layout_width="275dp"
                     android:layout_height="60dp"
-                    android:layout_x="50dp"
-                    android:layout_y="845dp"
                     android:background="@drawable/navi_blue_btn_style"
                     android:text="Back"
                     android:textSize="25sp"
@@ -95,16 +93,15 @@
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="60dp"
-                    android:text=""
+                    android:text=" "
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textSize="25sp" />
 
                 <Button
                     android:id="@+id/print_Btn"
-                    android:layout_width="200dp"
+                    android:layout_width="275dp"
                     android:layout_height="60dp"
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/navi_blue_btn_style"
                     android:text="Print"
                     android:textColor="#ffffff"
@@ -166,5 +163,13 @@
         android:textStyle="bold"
         android:typeface="normal"
         android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="-3dp"
+        android:layout_y="1135dp"
+        android:src="@drawable/footer" />
 
 </AbsoluteLayout>
