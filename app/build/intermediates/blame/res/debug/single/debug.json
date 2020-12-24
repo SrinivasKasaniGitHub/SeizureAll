@@ -1156,6 +1156,10 @@
         "source": "C:\\Users\\srinivas\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d79a11e5a2f818617ceb08169d15b68a\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
     {
+        "merged": "D:\\AndroidWorkSpace\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\layout_device_id.xml.flat",
+        "source": "D:\\AndroidWorkSpace\\SeizureAll\\app\\src\\main\\res\\layout\\device_id.xml"
+    },
+    {
         "merged": "D:\\AndroidWorkSpace\\SeizureAll\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_cell_shape.xml.flat",
         "source": "D:\\AndroidWorkSpace\\SeizureAll\\app\\src\\main\\res\\drawable-ldpi\\cell_shape.xml"
     },

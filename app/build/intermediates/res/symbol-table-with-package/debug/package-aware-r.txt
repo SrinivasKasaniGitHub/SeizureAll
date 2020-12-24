@@ -1160,6 +1160,8 @@ id back_btn
 id beginning
 id blocking
 id bottom
+id btn_Copy
+id btn_cancel
 id btn_enable
 id btn_pair
 id btn_scan
@@ -1213,6 +1215,7 @@ id duplicate_date_btn
 id duplicate_print
 id edit_Btn
 id edit_query
+id edtTxt_DevceId
 id edt_ftpurl_xml
 id edt_service_ipsettings_xml
 id encroachment_image
@@ -1314,8 +1317,10 @@ id list_item
 id listview_devicesfound
 id ll
 id ll_btns
+id ll_drivertype_spot_xml
 id ll_ftpurl
 id ll_ipsetting
+id ll_isOwner_isDriver
 id ll_main_root_spotchallan_xml
 id ll_rg_ipsettings_xml
 id ll_vhle_hstry_pchallans_xml
@@ -1326,6 +1331,7 @@ id loginText
 id login_Btn
 id logout
 id lv_paired
+id lyt_GetDtls
 id masked
 id media_actions
 id message
@@ -1404,6 +1410,7 @@ id ridcard_Btn
 id ridcardno_ET
 id right
 id right_icon
+id right_most_action_button
 id right_side
 id rl_vhlehstry_root_pchallans_xml
 id rmobileno_ET
@@ -1491,6 +1498,9 @@ id tin_no
 id tin_yes
 id title
 id titleDividerNoCustom
+id title_
+id title_Spinner
+id title_logo
 id title_template
 id title_tv
 id top
@@ -1514,6 +1524,7 @@ id useLogo
 id userID_ET
 id usernameTV
 id view_offset_helper
+id viewl
 id violation_linerlayout
 id visible
 id w1address_ET
@@ -1610,6 +1621,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout device_id
 layout display
 layout footer
 layout header

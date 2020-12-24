@@ -33,6 +33,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.provider.*;
+import android.provider.Settings;
 import android.support.design.widget.Snackbar;
 import android.telephony.TelephonyManager;
 import android.text.Html;
@@ -531,6 +532,40 @@ public class MainActivity extends Activity implements LocationListener,OnClickLi
 
     }
 
+    private void deviceId_Dlg() {
+        final AlertDialog alertDialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT).create();
+        @SuppressLint("InflateParams")
+        View view = getLayoutInflater().inflate(R.layout.device_id, null);
+        final EditText edtTxt_DevceId = view.findViewById(R.id.edtTxt_DevceId);
+        Button btn_Copy = view.findViewById(R.id.btn_Copy);
+        try {
+            @SuppressLint("HardwareIds")
+            String IMEI = Settings.Secure.getString(getContentResolver(),
+                    Settings.Secure.ANDROID_ID);
+            Log.d("Device Model", "" + IMEI);
+
+            edtTxt_DevceId.setText(IMEI);
+        } catch (Exception e) {
+            e.printStackTrace();
+            // edtTxt_DevceId.setEnabled(false);
+            edtTxt_DevceId.setText("");
+        }
+        btn_Copy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clipData = ClipData.newPlainText("key", edtTxt_DevceId.getText().toString());
+                clipboardManager.setPrimaryClip(clipData);
+                Toast.makeText(getApplicationContext(), "DeviceId Copied", Toast.LENGTH_SHORT).show();*/
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.setView(view);
+        alertDialog.setCancelable(false);
+        alertDialog.show();
+    }
+
     /***********************Network Check***************************/
 
     public class Async_task_login extends AsyncTask<Void, Void, String> {
@@ -567,7 +602,11 @@ public class MainActivity extends Activity implements LocationListener,OnClickLi
                 } else if (ServiceHelper.login_response.trim().equals("1") || null == ServiceHelper.login_response) {
                     showToast("Invalid Login Details");
                 } else if (ServiceHelper.login_response.trim().equals("2") || null == ServiceHelper.login_response) {
-                    showToast("Unauthorised Device");
+                    if (Build.VERSION.SDK_INT < 29) {
+                        showToast("Unauthorized Device");
+                    } else {
+                        deviceId_Dlg();
+                    }
                 } else if (ServiceHelper.login_response.trim().equals("3") || null == ServiceHelper.login_response) {
                     showToast("Contact eChallan Team");
                 } else {
@@ -770,7 +809,12 @@ public class MainActivity extends Activity implements LocationListener,OnClickLi
         }
 
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        IMEI = getDeviceID(telephonyManager);
+        if (Build.VERSION.SDK_INT < 29) {
+          IMEI = getDeviceID(telephonyManager);
+        } else {
+            IMEI = android.provider.Settings.Secure.getString(getContentResolver(),
+                    Settings.Secure.ANDROID_ID);
+        }
     }
 
     @Override

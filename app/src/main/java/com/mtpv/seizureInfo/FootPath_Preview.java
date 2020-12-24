@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Calendar;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -20,8 +21,10 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.format.DateFormat;
 //import org.apache.commons.codec.binary.Base64;
@@ -117,6 +120,7 @@ public class FootPath_Preview extends Activity {
     String hawkerType;
     TextView officer_Name,officer_Cadre,officer_PS;
 
+    @SuppressLint({"MissingPermission", "HardwareIds"})
     @SuppressWarnings("unused")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -327,10 +331,15 @@ public class FootPath_Preview extends Activity {
             detainedITems_layout.setVisibility(View.GONE);
         }
 
-        TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        simID = "";//subscriber identity module
 
-        imeiID = tm.getDeviceId(); //International Mobile Station Equipment Identity
-        simID = tm.getSimSerialNumber();//subscriber identity module
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        if (Build.VERSION.SDK_INT < 29) {
+            imeiID = telephonyManager.getDeviceId();
+        } else {
+            imeiID = android.provider.Settings.Secure.getString(getContentResolver(),
+                    Settings.Secure.ANDROID_ID);
+        }
 
         WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         WifiInfo info = manager.getConnectionInfo();
